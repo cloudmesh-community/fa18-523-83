@@ -15,7 +15,7 @@ Apache NiFi, dataflow
 ## 1 INTRODUCTION
 Nifi is an open-source project created by the United States Security Agency(NSA), originally named *Niagarafiles* and is currently being sponsored by Hortonworks under the name of Apache Nifi project [@fa18-523-83-nifi-wiki].
 
-Nifi’s design concepts involve around the main ideas of Flow Based Programing (FBP) – a programming paradigm that was invented by J. Paul Rodker Morrison in the late ‘60s. 
+Nifiâ€™s design concepts involve around the main ideas of Flow Based Programing (FBP) â€“ a programming paradigm that was invented by J. Paul Rodker Morrison in the late â€˜60s. 
 
 >FBP defines applications as networks of "black box" processes, which communicate via data chunks (called Information Packets) travelling across predefined connections (think "conveyor belts"), where the connections are specified externally to the processes [@fa18-523-83-flowbaseprogramming-jpaulmorrison].
 
@@ -48,10 +48,10 @@ NiFi's main features are:
 ### 4.5 Big Data Ingest - Hadoop Integration
 
 
-# 5 CONCLUSION
+## 5 CONCLUSION
 
-# ACKNOWLEDGEMENTS
+## ACKNOWLEDGEMENTS
 
-# REFERENCES
+## REFERENCES
 All references can be found in references.bib
 
