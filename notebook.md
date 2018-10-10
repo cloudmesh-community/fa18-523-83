@@ -23,3 +23,10 @@
 * Learned how to fork, clone, add upstream, create a new pull request on Github
 * Looking into previous Project to get project idea, need to look into how to write a project snapshots
 * Looking into how to use JabRef to reference technology papers
+
+
+# Week 09/30/18 - 10/04/18
+* Spent time to learn jabref
+* Worked on technology summaries 
+* Collect information for project
+* Research on technology review paper
