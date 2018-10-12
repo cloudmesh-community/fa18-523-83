@@ -29,7 +29,7 @@ Data description:
 * RevolvingUtilizationOfUnsecuredLines: Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits - percentage
 * age
 * NumberOfTime30-59DaysPastDueNotWorse: Number of times borrower has been 30-59 days past due but no worse in the last 2 years.
-* DebtRatio: Monthly debt payments, alimony,living costs divided by monthy gross income – percentage
+* DebtRatio: Monthly debt payments, alimony,living costs divided by monthy gross income percentage
 * MonthlyIncome: real
 * NumberOfOpenCreditLinesAndLoans: Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards)
 * NumberOfTimes90DaysLate: Number of times borrower has been 90 days or more past due.
