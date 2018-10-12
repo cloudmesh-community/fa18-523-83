@@ -5,10 +5,12 @@ owner:
   lastname: "Tran"
   hid: "fa18-523-83"
   community: "e523"
-section:
-    - title: TBD
-      url: 
-chapter:
+technologies:
+    - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/juju.md
+    - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/sap-hana.md
+    - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/sge.md
+    - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/slurm.md
+paper:
     - title: Apache NiFi
       url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/paper/paper.md       
 project:
