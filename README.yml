@@ -5,3 +5,15 @@ owner:
   lastname: "Tran"
   hid: "fa18-523-83"
   community: "e523"
+section:
+    - title: TBD
+      url: 
+chapter:
+    - title: Apache NiFi
+      url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/paper/paper.md       
+project:
+    - title: Credit scoring algorithm and its implementation in production
+      url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/project-report/report.md
+other:
+    - activity: TBD
+      url: 
