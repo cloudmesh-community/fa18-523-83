@@ -1,26 +1,31 @@
 # Credit scoring algorithm and its implementation in production
 
 Nhi Tran
+
 Indiana University Bloomington
+
 804 N Woodbridge Drive 
+
 Bloomington,Indiana 47408,USA 
+
 nytran@iu.edu
 
-## ABSTRACT
+## Abstract
 A credit scoring algorithm is essential to help bank determine whether to authorize a loan to consumers. Most of the decision requires fast result and high accuracy in order to improve the bank customer satisfaction and profit. Choosing a correct machine learning algorithm will result in high accuracy in the prediction and the implementation and its API/ processing optimization of the algorithm will result in the fast service a bank can provide to its customers.
 
-## KEYWORDS
+## Keywords
 machine learning, predict algorithm, classification, devops, optimization, api
-## 1 INTRODUCTION
+
+## 1 Introduction
 For every machine learning problem, there are normally two main areas that everyone focus on: which machine learning algorithms to use and how to run the machine learning code to serve its purpose.
 
 Most of the time, machine makes predictions by learning and observing the data patterns from previous existing data with known results. Once the training is over, the machine learning code can then be applied to new data and predict the unknown results by applying the trained patterns. 
 Once the code is completed, the next thing to do would be determining how to retrieve and apply the result of the prediction to a production application.
 
 
-## 2 DESIGN
+## 2 Design
 
-### 2.1 DATASET
+### 2.1 Dataset
 
 We are utilizing an existing dataset on Kaggle to train and test algorithms and determine which algorithms would be the best to predict the probability of someone experiencing financial distress in the next two years [@fa18-523-83-credit-dataset]. 
 
@@ -40,17 +45,17 @@ Data description:
 Training population:150000
 Testing population: 102000
 
-### 2.2 DATA VISUALIZATION
+### 2.2 Data Visualization
 
-### 2.3 DATA CLEANING
+### 2.3 Data Cleaning
 
-### 2.4 ALGORITHMS USED
+### 2.4 Algorithm Used
 Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression
 
-### 2.5 RESULTA COMPARISON
+### 2.5 Result Comparison
 
-## 3 IMPLEMENTATION
-### 3.1 TECHNOLOGIES USED
+## 3 Implementation
+### 3.1 Technologies Used
 *	Flask API - to allow the ability to pass attributes into production application and receive result in json
 *	Docker - container
 *	AWS EC2 - cloud server that will host all the code
@@ -61,17 +66,16 @@ Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression
 		?   Etc.
 
 
-## 4 RESULTS
+## 4 Results
 
-### 4.1 DEPLOYMENT BENCHMARKS
-### 4.2 APPLICATION BENCHMARKS
+### 4.1 Deployment Benchmarks
+### 4.2 Application Benchmarks
 
-## 5 LIMITATIONS
+## 5 Limitations
 
-# CONCLUSION
+# Conclusion
 
-# ACKNOWLEDGEMENTS
+# Acknowledgements
 
-# REFERENCES
-All references can be found in 
+# References
 
