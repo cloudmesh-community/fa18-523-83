@@ -4,7 +4,7 @@ owner:
   firstname: "Nhi"
   lastname: "Tran"
   hid: "fa18-523-83"
-  community: "e523"
+  community: "I523"
 technologies:
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/juju.md
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/sap-hana.md
