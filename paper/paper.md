@@ -6,23 +6,23 @@ Indiana University Bloomington
 Bloomington,Indiana 47408,USA 
 nytran@iu.edu
 
-## ABSTRACT
+## Abstract
 As the Internet of Things evolves, the needs for connectivity and communication between more complicated applications and data sources increases. Higher data volume and communication creates concerns such as data movement speeds, complex types of data sources, security, governance and high availability. Apache NiFi is an open-source software that helps resolve and address those concerns and automate the flow of data between systems.
 
-## KEYWORDS
+## Keywords
 Apache NiFi, dataflow 
 
-## 1 INTRODUCTION
+## 1 Introduction
 Nifi is an open-source project created by the United States Security Agency(NSA), originally named *Niagarafiles* and is currently being sponsored by Hortonworks under the name of Apache Nifi project [@fa18-523-83-nifi-wiki].
 
 Nifi’s design concepts involve around the main ideas of Flow Based Programing (FBP) – a programming paradigm that was invented by J. Paul Rodker Morrison in the late ‘60s. 
 
 >FBP defines applications as networks of "black box" processes, which communicate via data chunks (called Information Packets) travelling across predefined connections (think "conveyor belts"), where the connections are specified externally to the processes [@fa18-523-83-flowbaseprogramming-jpaulmorrison].
 
-## 2 NIFI ARCHITECTURE
+## 2 NiFi Architecture
 
 
-## 3 NIFI FEATURES
+## 3 NiFi Features
 
 NiFi's main features are:
 
@@ -35,7 +35,7 @@ NiFi's main features are:
 * Scalability: supports scale-out by clustering architecture as well as scale-up and scale-down [@fa18-523-83-nifi-apache][@fa18-523-83-apache-nifi-overview]
 
 
-## 4 NIFI USE CASES
+## 4 NiFi Use Cases
 
 ### 4.1 Predictive Analytics
 
@@ -48,10 +48,10 @@ NiFi's main features are:
 ### 4.5 Big Data Ingest - Hadoop Integration
 
 
-## 5 CONCLUSION
+## 5 Conclusion
 
-## ACKNOWLEDGEMENTS
+## Acknowledgements
 
-## REFERENCES
+## References
 All references can be found in references.bib
 
