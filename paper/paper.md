@@ -1,9 +1,13 @@
 # Apache NiFi
 
 Nhi Tran
+
 Indiana University Bloomington
+
 804 N Woodbridge Drive 
+
 Bloomington,Indiana 47408,USA 
+
 nytran@iu.edu
 
 ## Abstract
