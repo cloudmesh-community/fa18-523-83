@@ -14,7 +14,7 @@ nytran@iu.edu
 A credit scoring algorithm is essential to help bank determine whether to authorize a loan to consumers. Most of the decision requires fast result and high accuracy in order to improve the bank customer satisfaction and profit. Choosing a correct machine learning algorithm will result in high accuracy in the prediction and the implementation and its API/ processing optimization of the algorithm will result in the fast service a bank can provide to its customers.
 
 ## Keywords
-machine learning, predict algorithm, classification, devops, optimization, api
+fa18-523-82, machine learning, predict algorithm, classification, devops, optimization, api
 
 ## 1 Introduction
 For every machine learning problem, there are normally two main areas that everyone focus on: which machine learning algorithms to use and how to run the machine learning code to serve its purpose.
