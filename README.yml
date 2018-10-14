@@ -12,9 +12,11 @@ technologies:
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/slurm.md
 paper:
     - title: Apache NiFi
+      keyword: NiFi
       url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/paper/paper.md       
 project:
     - title: Credit scoring algorithm and its implementation in production
+      keyword: Credit
       url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/project-report/report.md
 other:
     - activity: TBD
