@@ -5,6 +5,7 @@ owner:
   lastname: "Tran"
   hid: "fa18-523-83"
   community: "i523"
+  semester: "fa18"
 technologies:
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/juju.md
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/sap-hana.md
@@ -13,11 +14,12 @@ technologies:
 paper:
     - title: Apache NiFi
       keyword: NiFi
-      url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/paper/paper.md       
+      url: https://github.com/cloudmesh-community/fa18-523-56/blob/master/paper/paper.md
+      group: fa18-523-56
 project:
     - title: Credit scoring algorithm and its implementation in production
       keyword: Credit
       url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/project-report/report.md
 other:
     - activity: TBD
-      url: 
+      url: TBD
