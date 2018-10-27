@@ -1,4 +1,4 @@
-# Credit scoring algorithm and its implementation in production
+# Credit scoring algorithm and its implementation in production :hand: fa18-523-82
 
 Nhi Tran
 
@@ -14,9 +14,11 @@ nytran@iu.edu
 A credit scoring algorithm is essential to help bank determine whether to authorize a loan to consumers. Most of the decision requires fast result and high accuracy in order to improve the bank customer satisfaction and profit. Choosing a correct machine learning algorithm will result in high accuracy in the prediction and the implementation and its API/ processing optimization of the algorithm will result in the fast service a bank can provide to its customers.
 
 ## Keywords
+
 fa18-523-82, machine learning, predict algorithm, classification, devops, optimization, api
 
 ## 1 Introduction
+
 For every machine learning problem, there are normally two main areas that everyone focus on: which machine learning algorithms to use and how to run the machine learning code to serve its purpose.
 
 Most of the time, machine makes predictions by learning and observing the data patterns from previous existing data with known results. Once the training is over, the machine learning code can then be applied to new data and predict the unknown results by applying the trained patterns. 
@@ -50,12 +52,15 @@ Testing population: 102000
 ### 2.3 Data Cleaning
 
 ### 2.4 Algorithm Used
+
 Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression
 
 ### 2.5 Result Comparison
 
 ## 3 Implementation
+
 ### 3.1 Technologies Used
+
 *	Flask API - to allow the ability to pass attributes into production application and receive result in json
 *	Docker - container
 *	AWS EC2 - cloud server that will host all the code
@@ -69,13 +74,14 @@ Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression
 ## 4 Results
 
 ### 4.1 Deployment Benchmarks
+
 ### 4.2 Application Benchmarks
 
 ## 5 Limitations
 
-# Conclusion
+## Conclusion
 
-# Acknowledgements
+## Acknowledgements
 
-# References
+## References
 
