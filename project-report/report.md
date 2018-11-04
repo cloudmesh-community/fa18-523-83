@@ -2,7 +2,7 @@
 
 :o: format not followed
 
-:o: no numbers in sectins
+:o: no numbers in sections
 
 Nhi Tran
 
