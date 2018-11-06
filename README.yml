@@ -6,6 +6,7 @@ owner:
   hid: "fa18-523-83"
   community: "i523"
   semester: "fa18"
+  profile: "https://github.com/nhiyobie"
 technologies:
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/juju.md
     - url: https://github.com/cloudmesh/technologies/blob/master/chapters/tech/sap-hana.md
