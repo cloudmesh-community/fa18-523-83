@@ -30,3 +30,11 @@
 * Worked on technology summaries 
 * Collect information for project
 * Research on technology review paper
+
+
+# Week 10/05/18 - 10/11/18
+* Completed technology summaries
+* Completed draft versions of paper and project
+
+
+
