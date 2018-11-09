@@ -87,14 +87,14 @@ The goal is to determing whether someone will experience financial distress in t
 
 ### Technologies Used
 
-*             Flask API - to allow the ability to pass attributes into production application and receive result in json
-*             Docker - container
-*             AWS EC2 - cloud server that will host all the code
-*             Python - used to built algorithms
-               *  Panda
-                                *  Numpy
-                                *  Scikit-learn
-                                ?   Etc.
+* Flask API - to allow the ability to pass attributes into production application and receive result in json
+* Docker - container
+* AWS EC2 - cloud server that will host all the code
+* Python - used to built algorithms
+     *  Panda
+            *  Numpy
+            *  Scikit-learn
+            ?   Etc.
 
 
 ## Results
