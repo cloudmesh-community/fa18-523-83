@@ -1,6 +1,8 @@
-# Apache NiFi :hand: fa18-523-83
+# Apache NiFi :o: :wave: :exclamation: fa18-523-83
 
 :o: format incorrect
+
+:o: is this a deprecated paper. If so you need to move it in a folder deprecated, otherwise you will be confusing the reviewers
 
 | github: [:cloud:](https://github.com/cloudmesh-community/fa18-523-83/edit/master/paper/paper.md)
 
