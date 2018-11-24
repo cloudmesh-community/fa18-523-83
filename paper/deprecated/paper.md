@@ -1,4 +1,11 @@
-# Apache NiFi
+# Apache NiFi :o: :wave: :exclamation: fa18-523-83
+
+:o: format incorrect
+
+:o: is this a deprecated paper. If so you need to move it in a folder deprecated, otherwise you will be confusing the reviewers
+
+| github: [:cloud:](https://github.com/cloudmesh-community/fa18-523-83/edit/master/paper/paper.md)
+
 
 Nhi Tran
 
@@ -16,17 +23,18 @@ As the Internet of Things evolves, the needs for connectivity and communication 
 ## Keywords
 fa18-523-83, Apache NiFi, dataflow 
 
-## 1 Introduction
+## Introduction
+
 Nifi is an open-source project created by the United States Security Agency(NSA), originally named *Niagarafiles* and is currently being sponsored by Hortonworks under the name of Apache Nifi project [@fa18-523-83-nifi-wiki].
 
 Nifi’s design concepts involve around the main ideas of Flow Based Programing (FBP) – a programming paradigm that was invented by J. Paul Rodker Morrison in the late ‘60s. 
 
 >FBP defines applications as networks of "black box" processes, which communicate via data chunks (called Information Packets) travelling across predefined connections (think "conveyor belts"), where the connections are specified externally to the processes [@fa18-523-83-flowbaseprogramming-jpaulmorrison].
 
-## 2 NiFi Architecture
+## NiFi Architecture
 
 
-## 3 NiFi Features
+## NiFi Features
 
 NiFi's main features are:
 
@@ -39,23 +47,20 @@ NiFi's main features are:
 * Scalability: supports scale-out by clustering architecture as well as scale-up and scale-down [@fa18-523-83-nifi-apache][@fa18-523-83-apache-nifi-overview]
 
 
-## 4 NiFi Use Cases
+## NiFi Use Cases
 
-### 4.1 Predictive Analytics
+### Predictive Analytics
 
-### 4.2 Fraud Detection 
+### Fraud Detection 
 
-### 4.3 Accelerated Data Collection 
+### Accelerated Data Collection 
 
-### 4.4 IoT Optimization
+### IoT Optimization
 
-### 4.5 Big Data Ingest - Hadoop Integration
+### Big Data Ingest - Hadoop Integration
 
 
-## 5 Conclusion
+## Conclusion
 
 ## Acknowledgements
-
-## References
-All references can be found in references.bib
 
