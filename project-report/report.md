@@ -88,10 +88,14 @@ Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '
 
 ![Label Distribution](images/label_distribution_training.PNG){#fig:labeldistribution}
 
-Using *seaborn*, *heatmap* can be used to visualized the correlation of all attributes. Correlation is a measurement of the strength of association between two variables and the relationship's direction [@fa18-523-83-www-correlation-stats].
+Using *seaborn*, *heatmap* can be used to visualized the correlation of all attributes. Correlation is a measurement of the strength of association between two variables and the relationship's direction [@fa18-523-83-www-correlation-stats]. Correlation is an important indicator in the Feature Selection process to help determine which attributes should be used as part of training set and which attributes should be irrelevent. There are multiple correlation methods to calculate correlation coefficient, the method that is used for this training set is called *Spearman*. The *heatmap* and correlation should be generated after *Data Cleaning* process. 
 
 
+### Data Cleaning
  
+
+
+
 
 ### Model Training
 
