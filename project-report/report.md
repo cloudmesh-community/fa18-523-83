@@ -84,7 +84,7 @@ Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '
 ![Count of Customer by Multiple Attributes](images/count_vs_attributes_training.PNG){#fig:attributescounttraining}
 
 
-+fig:labeldistribution shows the distribution of the label that will be what the machines are trying to predict. If the label distribution is not similar, the model might overfit and give a higher chance of predicting the label that has higher population. In this case, the training set contains 14 times more the amount of customers that had no delinquency than the amount of customers that had delinquency. This issue will need to be handled during the *Data Cleaning* or *Model Training* process.
++fig:labeldistribution shows the distribution of the label that will be what the machines are trying to predict. If the label distribution is not even, the model might overfit and give a higher chance of predicting the label that has higher population. In this case, the training set contains 14 times more the amount of customers that had no delinquency than the amount of customers that had delinquency. This issue will need to be handled during the *Data Cleaning* or *Model Training* process.
 
 ![Label Distribution](images/label_distribution_training.PNG){#fig:labeldistribution}
 
