@@ -58,7 +58,7 @@ Data descriptions [@fa18-523-83-www-gmsc-kaggle-data] :
 
 ### Data Visualization
 
-Using the `describe()` function in Python *pandas* package, the statistics for each attributes within training dataset is populated. The statistics include count, mean, standard deviation, minimum, quantiles, and maximum. The function helps with seeing outliers, identifies values or columns that need to be cleaned up. For example, in the training set, some areas that will need to be carefully examined are *age* with minimum value of 0, *MonthlyIncome* and *NumberOfDependents* contains *NaN* value in their quantiles. 
+Using the `describe()` function in Python *pandas* package, the statistics for each attributes within training dataset is populated. The statistics include count, mean, standard deviation, minimum, quantiles, and maximum. The function helps with seeing outliers and identifies values or columns that need to be cleaned up. For example, in the training set, some areas that will need to be carefully examined are *age* with minimum value of 0, *MonthlyIncome* and *NumberOfDependents* contains *NaN* value in their quantiles. 
 
 |       |                    |                    |                    | 
 |-------|--------------------|--------------------|--------------------| 
@@ -67,10 +67,17 @@ Using the `describe()` function in Python *pandas* package, the statistics for e
 | mean  | 52.295206666666665 | 6670.221237392844  | 0.7572222678605657 | 
 | std   | 14.77186586310081  | 14384.674215282244 | 1.1150860714872997 | 
 | min   | 0.0                | 0.0                | 0.0                | 
-| 25%   | 41.0               |                    |                    | 
-| 50%   | 52.0               |                    |                    | 
-| 75%   | 63.0               |                    |                    | 
+| 25%   | 41.0               | NaN                | NaN                | 
+| 50%   | 52.0               | NaN                | NaN                | 
+| 75%   | 63.0               | NaN                | NaN                | 
 | max   | 109.0              | 3008750.0          | 20.0               | 
+
+
+Data Visualization in Python can be done using graphing packages such as *matplotlib*, *seaborn*, etc.
+
+Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '0' value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
+
+[! Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
 
 
 
