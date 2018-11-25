@@ -45,7 +45,7 @@ The Kaggle competition contains a training set, a test set, and a data dictionar
  
 Data descriptions [@fa18-523-83-www-gmsc-kaggle-data] :
 *  *SeriousDlqin2yrs*: label data, contains 'Yes' or 'No' indicator 
-*  *evolvingUtilizationOfUnsecuredLines*: total balance of unsecured lines such as credit cards and personal lines
+*  *RevolvingUtilizationOfUnsecuredLines*: total balance of unsecured lines such as credit cards and personal lines
 *  *age*: bank customers' age
 *  *NumberOfTime30-59DaysPastDueNotWorse*: number of times each customer has been 30-59 days past due but no worse in the last 2 years
 *  *DebtRatio*: monthly debt payments divided by monthly gross income
@@ -78,6 +78,10 @@ Data Visualization in Python can be done using graphing packages such as *matplo
 Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '0' value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
 
 ![Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
+
++fig:attributescounttraining shows overall distribution of the count of customers that experienced past due, the count of customers that have open credit and real estate lines , and the count of customers that have dependents other than themselves. Most of the distribution are right-skewed, majority of them do not have any past due, or dependents.
+
+![Count of Customer by Multiple Attributes](images/count_vs_attributes_training.PNG){#fig:attributescounttraining}
 
 
 
