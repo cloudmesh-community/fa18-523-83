@@ -84,12 +84,12 @@ Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '
 ![Count of Customer by Multiple Attributes](images/count_vs_attributes_training.PNG){#fig:attributescounttraining}
 
 
-+fig:labeldistribution shows the distribution of the label that will be what the machines are trying to predict. If the label distribution is not even, the model might overfit and give a higher chance of predicting the label that has higher population. In this case, the training set contains 14 times more the amount of customers that had no delinquency than the amount of customers that had delinquency. This issue will need to be handled during the *Data Cleaning* or *Model Training* process.
++fig:labeldistribution shows the distribution of the label that will be what the machines are trying to predict. If the label distribution is not even, the model might overfit and give a higher chance of predicting the label that has higher population. In this case, the amount of customers that had no delinquency is 14 times more than the amount of customers that had delinquency. This issue will need to be handled during the *Data Cleaning* or *Model Training* process to avoid overfitting.
 
 ![Label Distribution](images/label_distribution_training.PNG){#fig:labeldistribution}
 
+Using *seaborn*, *heatmap* can be used to visualized the correlation of all attributes. Correlation is a measurement of the strength of association between two variables and the relationship's direction [@fa18-523-83-www-correlation-stats].
 
-### Data Cleaning
 
  
 
