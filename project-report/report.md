@@ -77,7 +77,7 @@ Data Visualization in Python can be done using graphing packages such as *matplo
 
 Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '0' value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
 
-[! Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
+![Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
 
 
 
