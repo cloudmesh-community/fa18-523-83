@@ -114,9 +114,9 @@ The final observation is that *MonthlyIncome* and the new variables *TotalNumber
 ### Model Training
 
 
-Because the training data has imbalanced classes, there are multiple ways to handle this issue [@fa18-523-18-www-imbalanced-classes]:
+Because the training data has imbalanced classes, there are multiple ways to handle this issue:
 
-* Methods that will be used: 
+* Methods that will be used [@fa18-523-18-www-imbalanced-classes]: 
 
      * *Changing Performance Metric*: instead of using only *Accuracy* as the main performance metric to evaluate models, try to include other metrics such as *Confusion Matrix*, *Precision*, *Recall*, *F1 Score*, *Kappa*, *ROC Curves*. 
       
@@ -126,7 +126,7 @@ Because the training data has imbalanced classes, there are multiple ways to han
       
      * *Penalized Models*: Use penalized methods to cause the model to pay more attentions to the minority class to evaluate.
       
-* Methods that will not be used: 
+* Methods that will not be used [@fa18-523-18-www-imbalanced-classes]: 
 
      * *Increase Training Data*: gaining more data to provide more balance and insights in data. 
       
