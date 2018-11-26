@@ -118,19 +118,19 @@ Because the training data has imbalanced classes, there are multiple ways to han
 
 * Methods that will be used: 
 
-      * *Changing Performance Metric*: instead of using only *Accuracy* as the main performance metric to evaluate models, try to include other metrics such as *Confusion Matrix*, *Precision*, *Recall*, *F1 Score*, *Kappa*, *ROC Curves*. 
+     * *Changing Performance Metric*: instead of using only *Accuracy* as the main performance metric to evaluate models, try to include other metrics such as *Confusion Matrix*, *Precision*, *Recall*, *F1 Score*, *Kappa*, *ROC Curves*. 
       
-      * *Resample Dataset*: add copied of instances from low volume class as over-sampling method, or delete instances from high volume class as under-sampling method, or re-run the algorithm on shuffled data (k-fold cross validation). Under-sampling and cross-validation are used as part of the training process for this problem and will be included as part of the result evaluation section.
+     * *Resample Dataset*: add copied of instances from low volume class as over-sampling method, or delete instances from high volume class as under-sampling method, or re-run the algorithm on shuffled data (k-fold cross validation). Under-sampling and cross-validation are used as part of the training process for this problem and will be included as part of the result evaluation section.
       
-      * *Different Algorithms*: run data on multiple algorithms and evaluate and choose the best algorithms that fit the provided data.
+     * *Different Algorithms*: run data on multiple algorithms and evaluate and choose the best algorithms that fit the provided data.
       
-      * *Penalized Models*: Use penalized methods to cause the model to pay more attentions to the minority class to evaluate.
+     * *Penalized Models*: Use penalized methods to cause the model to pay more attentions to the minority class to evaluate.
       
 * Methods that will not be used: 
 
-      * *Increase Training Data*: gaining more data to provide more balance and insights in data. 
+     * *Increase Training Data*: gaining more data to provide more balance and insights in data. 
       
-      * *Generate Synthetic Samples*: use popular algorithms such as Synthetic Minority Over-sampling Technique to generate synthetic data. 
+     * *Generate Synthetic Samples*: use popular algorithms such as Synthetic Minority Over-sampling Technique to generate synthetic data. 
 
  
 The goal is to determine whether someone will experience financial distress in the next two years, therefore, there will only be valuable in the label: Yes or No. With a binary classification problem on supervised data, it is best to use classification algorithms such as Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression.
