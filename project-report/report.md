@@ -156,14 +156,18 @@ The goal is to determine whether someone will experience financial distress in t
 
 ### Technologies Used
 
-* Flask API - to allow the ability to pass attributes into production application and receive result in json
-* Docker - container
-* AWS EC2 - cloud server that will host all the code
-* Python - used to built algorithms
-     *  Panda
-            *  Numpy
-            *  Scikit-learn
-            ?   Etc.
+#### Kaggle API
+
+Kaggle API provides the ability to pull and push data from Kaggle website using command tool implemented in Python 3. The Kaggle API github page provide detailed Installation, API credentials and commands instruction [@fa18-523-83-www-kaggle-api-github]. 
+
+
+#### Python and Python Packages
+
+#### Flask API
+
+#### Docker
+
+#### AWS EC2
 
 
 ## Results
