@@ -176,9 +176,13 @@ In order the run the code and reproduce the run, the follow prerequisites need t
 
 * **Kaggle Account**: a Kaggle account is required to pull data from Kaggle
 
-* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json`
+* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` [@fa18-523-83-www-kaggle-api-github]
 
 * **Make**: ensure that *make* is installed. If not, use `apt-get install make` to install *make*. This will allow the *make* command from Makefile to be run.
+
+* **Project's Github Repository Cloned**: ensure all project are cloned from github using the following command:
+
+```git clone https://github.com/cloudmesh-community/fa18-523-83.git```
 
 
 
