@@ -164,30 +164,46 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 
 #### Python and Python Packages
 
+
 #### Flask API
+
 
 #### Docker
 
+
 #### AWS EC2
 
-### Prerequites
+
+### Prerequisites
 
 In order the run the code and reproduce the run, the follow prerequisites need to be met:
 
-* **Kaggle Account**: a Kaggle account is required to pull data from Kaggle
+* **Kaggle Account**: a Kaggle account is required to pull data from Kaggle.
 
-* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` [@fa18-523-83-www-kaggle-api-github]
+* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` and save in *project-code* folder cloned from github [@fa18-523-83-www-kaggle-api-github]. 
 
-* **Make**: ensure that *make* is installed. If not, use `apt-get install make` to install *make*. This will allow the *make* command from Makefile to be run.
+* **Make**: ensure that *make* is installed. If not, use `apt-get install make` to install *make*. This will allow the *make* command from Makefile to be run. The rest of the prerequisites packages and software can be run using *make* command.
 
 * **Project's Github Repository Cloned**: ensure all project are cloned from github using the following command:
 
-```git clone https://github.com/cloudmesh-community/fa18-523-83.git```
+    ```git clone https://github.com/cloudmesh-community/fa18-523-83.git```
+
+* **AWS Account** : an AWS account is required to be able to launch a cloud server instance for deployment and benchmarking results. The AWS account can be created via AWS EC2 page [@fa18-523-83-www-aws-ec2]. Credit card information is required during registration but the server instance can be launch for free. 
+
+* **Setting up EC2 Server Instance**: 
 
 
+### Project Code Structure and Components
 
+The directory structure of the project are:
 
+```tree command```
 
+#### LICENSE
+#### README
+#### Makefile 
+#### Dockerfile 
+#### requirements.txt 
 
 ## Results
 
