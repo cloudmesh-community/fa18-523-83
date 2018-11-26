@@ -116,10 +116,12 @@ The final observation is that *MonthlyIncome* and the new variables *TotalNumber
 The goal is to determine whether someone will experience financial distress in the next two years, therefore, there will only be valuable in the label: Yes or No. With a binary classification problem on supervised data, it is best to use classification algorithms such as Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression.
 
 * *Random Forest*: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] 
+
+* *Binary Logistic Regression*: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
+
 * **XGBoost**:
 * **LightGBM**:
 * **Support Vector Machine**:
-* **Logistic Regression**:
 
 Because the training data has imbalanced classes, 
 
