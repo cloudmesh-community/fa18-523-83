@@ -98,7 +98,17 @@ Using *seaborn*, *heatmap* can be used to visualized the correlation of all attr
 ![Correlation First Run](images/correlation_step_1.PNG){#fig:correlation1}
 
 
+From +fig:correlation1, *DebtRatio* has very low correlation to the class label. It means that the debt ratio of a customers does not impact on whether a customers will be likely to default in the next 2 years. At the same time, the *DebtRatio* variable is highly correlate with the number of open credit lines and real estate loans, which could potentially interrupt the training algorithms and result in a false prediction. Therefore, it is better to exclude *DebtRatio* out of the final dataset.
 
+Another obsevation from +fig:correlation1 is that all number of past due variables have high impact on the class label and between themselves at the same time. Since they are all past due type of data, adding them all into a new variable called *TotalNumberOfPastDue* and dropping all individual past due variables could be a good idea to avoid conflicting between those variables. 
+
+Similar to past due variables, *NumberOfOpenCreditLinesAndLoans* and *NumberOfRealEstatesLoansOrLines* are highly correlated to each other, therefore, adding them together into a new variable called *TotalNumberOfOpenLines* is a way to solve the problem. 
+
+Once all of the new variables are added and individually variables are removed, it is good to run the *heatmap* again to determine whether or not there are more cleaning to be done. +fig:correlation2 is the second *heatmap* run with all prepared variables.
+
+![Correlation Second Run](images/correlation_step_2.PNG){#fig:correlation2}
+
+The final observation is that *MonthlyIncome* and the new variables *TotalNumberOfOpenLines* are also high correlated to each other. Since *MonthlyIncome* has a higher correlation than *TotalNumberOfOpenLines*, the last step to have a final training dataset is to drop *TotalNumberOfOpenLines*.
 
 
 ### Model Training
