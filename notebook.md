@@ -53,4 +53,11 @@
 * Working on project 
 
 
+# Week 11/08/18 - 11/16/18
+* Completed paper, waiting for review
+* Working on project 
+
+# Week 11/17/18 - 11/24/18
+* Received review for paper, fixed paper based on feedback and fixed typo issue
+* Working on project 
 
