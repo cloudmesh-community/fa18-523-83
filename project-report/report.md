@@ -106,7 +106,9 @@ Similar to past due variables, *NumberOfOpenCreditLinesAndLoans* and *NumberOfRe
 
 Once all of the new variables are added and individually variables are removed, it is good to run the *heatmap* again to determine whether or not there are more cleaning to be done. +fig:correlation2 is the second *heatmap* run with all prepared variables.
 
+
 ![Correlation Second Run](images/correlation_step_2.PNG){#fig:correlation2}
+
 
 The final observation is that *MonthlyIncome* and the new variables *TotalNumberOfOpenLines* are also high correlated to each other. Since *MonthlyIncome* has a higher correlation than *TotalNumberOfOpenLines*, the last step to have a final training dataset is to drop *TotalNumberOfOpenLines*.
 
