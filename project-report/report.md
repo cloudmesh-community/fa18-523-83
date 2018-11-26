@@ -44,21 +44,21 @@ We are utilizing an existing dataset from the 'Give Me Some Credit' competition 
 The Kaggle competition contains a training set, a test set, and a data dictionary. The training set contains 150,000 records of previous customer data with an existing label indicating whether or not each customer had serious bank delinquency within two years. The test set contains about 100,000 records without any label data, which will not be part of the analysis but will be used as part of the benchmarking report.
  
 Data descriptions [@fa18-523-83-www-gmsc-kaggle-data] :
-*  *SeriousDlqin2yrs*: label data, contains 'Yes' or 'No' indicator 
-*  *RevolvingUtilizationOfUnsecuredLines*: total balance of unsecured lines such as credit cards and personal lines
-*  *age*: bank customers' age
-*  *NumberOfTime30-59DaysPastDueNotWorse*: number of times each customer has been 30-59 days past due but no worse in the last 2 years
-*  *DebtRatio*: monthly debt payments divided by monthly gross income
-*  *MonthlyIncome*: bank customers' monthly income
-*  *NumberOfOpenCreditLinesAndLoans*: number of open loans and lines of credit 
-*  *NumberOfTimes90DaysLate*: number of times each customer has been 90 days or more past due
-*  *NumberRealEstateLoansOrLines*: number of mortgage and real estate loans
-*  *NumberOfTime60-89DaysPastDueNotWorse*: number of times each customer has been 60-89 days past due but no worse in the last 2 years
-*  *NumberOfDependents*: number of dependents in family excluding themselves (spouse, children etc.)
+*  **SeriousDlqin2yrs**: label data, contains 'Yes' or 'No' indicator 
+*  **RevolvingUtilizationOfUnsecuredLines**: total balance of unsecured lines such as credit cards and personal lines
+*  **age**: bank customers' age
+*  **NumberOfTime30-59DaysPastDueNotWorse**: number of times each customer has been 30-59 days past due but no worse in the last 2 years
+*  **DebtRatio**: monthly debt payments divided by monthly gross income
+*  **MonthlyIncome**: bank customers' monthly income
+*  **NumberOfOpenCreditLinesAndLoans**: number of open loans and lines of credit 
+*  **NumberOfTimes90DaysLate**: number of times each customer has been 90 days or more past due
+*  **NumberRealEstateLoansOrLines**: number of mortgage and real estate loans
+*  **NumberOfTime60-89DaysPastDueNotWorse**: number of times each customer has been 60-89 days past due but no worse in the last 2 years
+*  **NumberOfDependents**: number of dependents in family excluding themselves (spouse, children etc.)
 
 ### Data Visualization
 
-Using the `describe()` function in Python *pandas* package, the statistics for each attributes within training dataset is populated. The statistics include count, mean, standard deviation, minimum, quantiles, and maximum. The function helps with seeing outliers and identifies values or columns that need to be cleaned up. For example, in the training set, some areas that will need to be carefully examined are *age* with minimum value of 0, *MonthlyIncome* and *NumberOfDependents* contains *NaN* value in their quantiles. 
+Using the `describe()` function in Python *pandas* package, the statistics for each attributes within training dataset is populated. The statistics include count, mean, standard deviation, minimum, quantiles, and maximum. The function helps with seeing outliers and identifies values or columns that need to be cleaned up. For example, in the training set, some areas that will need to be carefully examined are *age* with minimum value of *0*, *MonthlyIncome* and *NumberOfDependents* contains *NaN* value in their quantiles. 
 
 |       |                    |                    |                    | 
 |-------|--------------------|--------------------|--------------------| 
@@ -75,7 +75,7 @@ Using the `describe()` function in Python *pandas* package, the statistics for e
 
 Data Visualization in Python can be done using graphing packages such as *matplotlib*, *seaborn*, etc.
 
-Using *matplotlib*, +fig:agecounttraining shows that there is a small count of '0' value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
+Using *matplotlib*, +fig:agecounttraining shows that there is a small count of *0* value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
 
 ![Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
 
@@ -120,26 +120,26 @@ Because the training data has imbalanced classes, there are multiple ways to han
 
 * Methods that will be used [@fa18-523-18-www-imbalanced-classes]: 
 
-     * *Changing Performance Metric*: instead of using only *Accuracy* as the main performance metric to evaluate models, try to include other metrics such as *Confusion Matrix*, *Precision*, *Recall*, *F1 Score*, *Kappa*, *ROC Curves*. 
+     * **Changing Performance Metric**: instead of using only *Accuracy* as the main performance metric to evaluate models, try to include other metrics such as *Confusion Matrix*, *Precision*, *Recall*, *F1 Score*, *Kappa*, *ROC Curves*. 
       
-     * *Resample Dataset*: add copied of instances from low volume class as over-sampling method, or delete instances from high volume class as under-sampling method, or re-run the algorithm on shuffled data (k-fold cross validation). Under-sampling and cross-validation are used as part of the training process for this problem and will be included as part of the result evaluation section.
+     * **Resample Dataset**: add copied of instances from low volume class as over-sampling method, or delete instances from high volume class as under-sampling method, or re-run the algorithm on shuffled data (k-fold cross validation). Under-sampling and cross-validation are used as part of the training process for this problem and will be included as part of the result evaluation section.
       
-     * *Different Algorithms*: run data on multiple algorithms and evaluate and choose the best algorithms that fit the provided data.
+     * **Different Algorithms**: run data on multiple algorithms and evaluate and choose the best algorithms that fit the provided data.
       
-     * *Penalized Models*: Use penalized methods to cause the model to pay more attentions to the minority class to evaluate.
+     * **Penalized Models**: Use penalized methods to cause the model to pay more attentions to the minority class to evaluate.
       
 * Methods that will not be used [@fa18-523-18-www-imbalanced-classes]: 
 
-     * *Increase Training Data*: gaining more data to provide more balance and insights in data. 
+     * **Increase Training Data**: gaining more data to provide more balance and insights in data. 
       
-     * *Generate Synthetic Samples*: use popular algorithms such as Synthetic Minority Over-sampling Technique to generate synthetic data. 
+     * **Generate Synthetic Samples**: use popular algorithms such as Synthetic Minority Over-sampling Technique to generate synthetic data. 
 
  
 The goal is to determine whether someone will experience financial distress in the next two years, therefore, there will only be valuable in the label: Yes or No. With a binary classification problem on supervised data, it is best to use classification algorithms such as Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression.
 
-* *Random Forest*: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] 
+* **Random Forest**: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] 
 
-* *Binary Logistic Regression*: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
+* **Binary Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
 
 * **XGBoost**:
 * **LightGBM**:
@@ -154,7 +154,6 @@ The goal is to determine whether someone will experience financial distress in t
 
 ## Implementation
 
- 
 
 ### Technologies Used
 
@@ -170,6 +169,20 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 #### Docker
 
 #### AWS EC2
+
+### Prerequites
+
+In order the run the code and reproduce the run, the follow prerequisites need to be met:
+
+* **Kaggle Account**: a Kaggle account is required to pull data from Kaggle
+
+* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json`
+
+* **Make**: ensure that *make* is installed. If not, use `apt-get install make` to install *make*. This will allow the *make* command from Makefile to be run.
+
+
+
+
 
 
 ## Results
