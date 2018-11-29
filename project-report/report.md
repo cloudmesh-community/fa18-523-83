@@ -39,7 +39,7 @@ The business problem that will be focused on is how to determine in real-time wh
 ### Dataset
 
 
-We are utilizing an existing dataset from the 'Give Me Some Credit' competition on Kaggle to train and test algorithms and determine which algorithms would be the best to predict the probability of someone experiencing financial distress in the next two years [@fa18-523-83-credit-dataset].
+We are utilizing an existing dataset from the 'Give Me Some Credit' competition on Kaggle to train and test algorithms and determine which algorithms would be the best to predict the probability of someone experiencing financial distress in the next two years [@fa18-523-83-www-credit-dataset].
 
 The Kaggle competition contains a training set, a test set, and a data dictionary. The training set contains 150,000 records of previous customer data with an existing label indicating whether or not each customer had serious bank delinquency within two years. The test set contains about 100,000 records without any label data, which will not be part of the analysis but will be used as part of the benchmarking report.
  
@@ -61,31 +61,31 @@ Data descriptions [@fa18-523-83-www-gmsc-kaggle-data]:
 
 Using the `describe()` function in Python *pandas* package, the statistics for each attributes within training dataset is populated. The statistics include count, mean, standard deviation, minimum, quantiles, and maximum. The function helps with seeing outliers and identifies values or columns that need to be cleaned up. For example, in the training set, some areas that will need to be carefully examined are *age* with minimum value of *0*, *MonthlyIncome* and *NumberOfDependents* contains *NaN* value in their quantiles. 
 
-|       |                    |                    |                    | 
-|-------|--------------------|--------------------|--------------------| 
-|       | age                | MonthlyIncome      | NumberOfDependents | 
-| count | 150000.0           | 120269.0           | 146076.0           | 
-| mean  | 52.295206666666665 | 6670.221237392844  | 0.7572222678605657 | 
-| std   | 14.77186586310081  | 14384.674215282244 | 1.1150860714872997 | 
-| min   | 0.0                | 0.0                | 0.0                | 
-| 25%   | 41.0               | NaN                | NaN                | 
-| 50%   | 52.0               | NaN                | NaN                | 
-| 75%   | 63.0               | NaN                | NaN                | 
-| max   | 109.0              | 3008750.0          | 20.0               | 
+|       |          |               |                    | 
+|-------|----------|---------------|--------------------| 
+|       | age      | MonthlyIncome | NumberOfDependents | 
+| count | 150000.0 | 120269.0      | 146076.0           | 
+| mean  | 52.29520 | 6670.22123739 | 0.7572222678605657 | 
+| std   | 14.77186 | 14384.6742152 | 1.1150860714872997 | 
+| min   | 0.0      | 0.0           | 0.0                | 
+| 25%   | 41.0     | NaN           | NaN                | 
+| 50%   | 52.0     | NaN           | NaN                | 
+| 75%   | 63.0     | NaN           | NaN                | 
+| max   | 109.0    | 3008750.0     | 20.0               | 
 
 
 Data Visualization in Python can be done using graphing packages such as *matplotlib*, *seaborn*, etc.
 
-Using *matplotlib*, +fig:agecounttraining shows that there is a small count of *0* value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
+Using *matplotlib*, +@fig:agecounttraining shows that there is a small count of *0* value as outliers and the distribution without those outliers will be a right-skewed distribution. Therefore, it is better to replace those outliers with the median value of the distribution.
 
 ![Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
 
-+fig:attributescounttraining shows overall distribution of the count of customers that experienced past due, the count of customers that have open credit and real estate lines , and the count of customers that have dependents other than themselves. Most of the distribution are right-skewed, majority of them do not have any past due, or dependents.
++@fig:attributescounttraining shows overall distribution of the count of customers that experienced past due, the count of customers that have open credit and real estate lines , and the count of customers that have dependents other than themselves. Most of the distribution are right-skewed, majority of them do not have any past due, or dependents.
 
 ![Count of Customer by Multiple Attributes](images/count_vs_attributes_training.PNG){#fig:attributescounttraining}
 
 
-+fig:labeldistribution shows the distribution of the label that will be what the machines are trying to predict. If the label distribution is not even, the model might overfit and give a higher chance of predicting the label that has higher population. In this case, the amount of customers that had no delinquency is 14 times more than the amount of customers that had delinquency. This issue will need to be handled during the *Data Cleaning* or *Model Training* process to avoid overfitting.
++@fig:labeldistribution shows the distribution of the label that will be what the machines are trying to predict. If the label distribution is not even, the model might overfit and give a higher chance of predicting the label that has higher population. In this case, the amount of customers that had no delinquency is 14 times more than the amount of customers that had delinquency. This issue will need to be handled during the *Data Cleaning* or *Model Training* process to avoid overfitting.
 
 ![Label Distribution](images/label_distribution_training.PNG){#fig:labeldistribution}
 
@@ -94,18 +94,18 @@ Using *matplotlib*, +fig:agecounttraining shows that there is a small count of *
  
 From the *Data Visualization* step, the first basic data preperation are replacing missing value with median value. Another way to handle this issue is to drop records that has missing data, however, due to low data volumes and imbalanced class data distribution, it is better to replace missing data instead. 
 
-Using *seaborn*, *heatmap* can be used to visualized the correlation of all attributes. Correlation is a measurement of the strength of association between two variables and the relationship's direction [@fa18-523-83-www-correlation-stats]. Correlation is an important indicator in the Feature Selection process to help determine which attributes should be used as part of training set and which attributes should be irrelevent. There are multiple correlation methods to calculate correlation coefficient, the method that is used for this training set is called *Spearman*. +fig:correlation1 shows the first observation of the correlation between all variables.
+Using *seaborn*, *heatmap* can be used to visualized the correlation of all attributes. Correlation is a measurement of the strength of association between two variables and the relationship's direction [@fa18-523-83-www-correlation-stats]. Correlation is an important indicator in the Feature Selection process to help determine which attributes should be used as part of training set and which attributes should be irrelevent. There are multiple correlation methods to calculate correlation coefficient, the method that is used for this training set is called *Spearman*. +@fig:correlation1 shows the first observation of the correlation between all variables.
 
 ![Correlation First Run](images/correlation_step_1.PNG){#fig:correlation1}
 
 
-From +fig:correlation1, *DebtRatio* has very low correlation to the class label. It means that the debt ratio of a customers does not impact on whether a customers will be likely to default in the next 2 years. At the same time, the *DebtRatio* variable is highly correlate with the number of open credit lines and real estate loans, which could potentially interrupt the training algorithms and result in a false prediction. Therefore, it is better to exclude *DebtRatio* out of the final dataset.
+From +@fig:correlation1, *DebtRatio* has very low correlation to the class label. It means that the debt ratio of a customers does not impact on whether a customers will be likely to default in the next 2 years. At the same time, the *DebtRatio* variable is highly correlate with the number of open credit lines and real estate loans, which could potentially interrupt the training algorithms and result in a false prediction. Therefore, it is better to exclude *DebtRatio* out of the final dataset.
 
 Another obsevation from +fig:correlation1 is that all number of past due variables have high impact on the class label and between themselves at the same time. Since they are all past due type of data, adding them all into a new variable called *TotalNumberOfPastDue* and dropping all individual past due variables could be a good idea to avoid conflicting between those variables. 
 
 Similar to past due variables, *NumberOfOpenCreditLinesAndLoans* and *NumberOfRealEstatesLoansOrLines* are highly correlated to each other, therefore, adding them together into a new variable called *TotalNumberOfOpenLines* is a way to solve the problem. 
 
-Once all of the new variables are added and individually variables are removed, it is good to run the *heatmap* again to determine whether or not there are more cleaning to be done. +fig:correlation2 is the second *heatmap* run with all prepared variables.
+Once all of the new variables are added and individually variables are removed, it is good to run the *heatmap* again to determine whether or not there are more cleaning to be done. +@fig:correlation2 is the second *heatmap* run with all prepared variables.
 
 
 ![Correlation Second Run](images/correlation_step_2.PNG){#fig:correlation2}
