@@ -32,9 +32,7 @@ packages-install:
 	sudo pip3 install kaggle
 
 download-file:
-	kaggle datasets download -d brycecf/give-me-some-credit-dataset
-	unzip -o give-me-some-credit-dataset.zip -d data/raw
-	rm -f give-me-some-credit-dataset.zip
+	kaggle datasets download -d brycecf/give-me-some-credit-dataset ; unzip -o give-me-some-credit-dataset.zip -d data/raw ; rm -f give-me-some-credit-dataset.zip
 
 
 preprocessing-files:
