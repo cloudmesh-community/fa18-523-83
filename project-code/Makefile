@@ -4,7 +4,6 @@ update-environment:
 	sudo apt-get update
 	sudo apt-get -y upgrade
 
-
 docker-install-ubuntu18-10:
 	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -32,7 +31,7 @@ packages-install:
 	sudo pip3 install kaggle
 
 download-file:
-	kaggle datasets download -d brycecf/give-me-some-credit-dataset ; unzip -o give-me-some-credit-dataset.zip -d data/raw ; rm -f give-me-some-credit-dataset.zip
+	sudo apt-get install -y unzip zip ; kaggle datasets download -d brycecf/give-me-some-credit-dataset ; unzip -o give-me-some-credit-dataset.zip -d data/raw ; rm -f give-me-some-credit-dataset.zip
 
 
 preprocessing-files:
