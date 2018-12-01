@@ -38,14 +38,12 @@ docker-stop:
 
 
 docker-build-image:
-	sudo docker build -t test_app .
+	cd src/docker ; sudo docker build -t test_app . ; cd ../../
+
 
 docker-run-image:
-	cd src/docker 
 	sudo docker run -p 4000:80 test_app 
-	cd ../../
 
-	
 .PHONY: packages-install		
 packages-install:
 	sudo apt install python3-pip
