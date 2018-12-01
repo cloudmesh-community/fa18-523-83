@@ -179,17 +179,27 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 
 In order the run the code and reproduce the run, the follow prerequisites need to be met:
 
+* **Ubuntu 18.04 Bionic Beaver or 18.10 Cosmic Cuttlefish Server**: all codes are were and tested on Ubuntu 18.04 and 18.10 Server
+
 * **Kaggle Account**: a Kaggle account is required to pull data from Kaggle.
 
-* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` and save in *project-code* folder cloned from github [@fa18-523-83-www-kaggle-api-github]. 
+* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` and save as `kaggle.json` at `~/.kaggle` directory and set the permission to 600  [@fa18-523-83-www-kaggle-api-github]. 
 
-* **Make**: ensure that *make* is installed. If not, use `apt-get install make` to install *make*. This will allow the *make* command from Makefile to be run. The rest of the prerequisites packages and software can be run using *make* command.
+* **Make**: ensure that *make* is installed. If not, use the following command to install *make*:
+
+    ```sudo apt-get install make```
+    
+This will allow the *make* command from *Makefile* to be run. The rest of the prerequisites packages and software can be run using *make* command.
+
+* **Project's Git Command**: install git command by running the following command:
+
+    ```sudo apt-get install git-core```
 
 * **Project's Github Repository Cloned**: ensure all project are cloned from github using the following command:
 
-    ```git clone https://github.com/cloudmesh-community/fa18-523-83.git```
+    ```sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git```
 
-* **AWS Account** : an AWS account is required to be able to launch a cloud server instance for deployment and benchmarking results. The AWS account can be created via AWS EC2 page [@fa18-523-83-www-aws-ec2]. Credit card information is required during registration but the server instance can be launch for free. 
+* **AWS Account** : an AWS account is required to be able to launch a cloud server instance for deployment and benchmarking results. The AWS account can be created via AWS EC2 page [@fa18-523-83-www-aws-ec2]. Credit card information is required during registration but the server instance can be launch for free.
 
 * **Setting up EC2 Server Instance**: 
 
@@ -201,10 +211,19 @@ The directory structure of the project are:
 ```tree command```
 
 #### LICENSE
+
 #### README
-#### Makefile 
-#### Dockerfile 
+
+#### Makefile
+
+#### Dockerfile
+
 #### requirements.txt 
+
+#### app.py
+
+#### Python Codes
+
 
 ## Results
 
