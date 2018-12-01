@@ -138,17 +138,19 @@ Methods that will not be used [@fa18-523-18-www-imbalanced-classes]:
  
 The goal is to determine whether someone will experience financial distress in the next two years, therefore, there will only be valuable in the label: Yes or No. With a binary classification problem on supervised data, it is best to use classification algorithms such as Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression.
 
-* **Random Forest**: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] 
+* **Random Forest**: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] . Using Python, the algorithm can be used from *RandomForest()* function in *sklearn* package. 
 
-* **Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
+* **Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression]. This algorithm is *LogisticRegression()* function in *sklearn* package. 
 
 * **XGBoost**: xgboost is
 
->'a scalable and accurate implementation of gradient boosting machines and it has proven to push the limits of computing power for boosted trees algorithms as it was built and developed for the sole purpose of model performance and computational speed [https://www.kdnuggets.com/2017/10/xgboost-top-machine-learning-method-kaggle-explained.html]
+>'a scalable and accurate implementation of gradient boosting machines and it has proven to push the limits of computing power for boosted trees algorithms as it was built and developed for the sole purpose of model performance and computational speed [https://www.kdnuggets.com/2017/10/xgboost-top-machine-learning-method-kaggle-explained.html].
 
-* **Neural Network**: 
+There is an XGBoost API that can be called via *sklearn* using function *XGBClassier*.
 
-* **Support Vector Machine**:
+* **Neural Network**: neural network is a machine learning algorithm that is inspired by the human brain. Neural network identifies the pattern of input data through multiple layers of artificial neural layers [https://www.upwork.com/hiring/data/neural-networks-demystified/]. The function *MLPClassifier* from *sklearn* is one of the Neural Network algorithm for classification problem.
+
+* **Support Vector Machine**: an algorithm that find patterns and predict output data by finding hyperplane(s) in an N-dimensional space [https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47] . The function *LinearSVC* from *sklearn* is one of the Support Vector Machine algorithms for classification problem.
 
 
 
@@ -168,6 +170,14 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 
 
 #### Python and Python Packages
+
+* **click**:
+
+* **sklearn**
+
+* **xgboost*
+
+* **
 
 
 #### Flask API
