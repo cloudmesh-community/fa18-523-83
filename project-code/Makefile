@@ -41,7 +41,7 @@ docker-build-image:
 	sudo docker build -t test_app .
 
 docker-run-image:
-	sudo docker run -p 4000:80 test_app
+	cd src/docker ; sudo docker run -p 4000:80 test_app ; cd ../../
 
 	
 .PHONY: packages-install		
