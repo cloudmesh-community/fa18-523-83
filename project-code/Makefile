@@ -36,7 +36,7 @@ download-file:
 
 preprocessing-files:
 	python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl
-	python3 src/data/preprocessing.py data/raw/cs-test.csv data/processed/testing.pkl
+	python3 src/data/preprocessing.py data/raw/cs-test.csv data/interim/testing.pkl
 
 
 
