@@ -60,4 +60,4 @@ post-test-data:
 
 .PHONE: docker-clean
 docker-clean:
-	id= echo `sudo docker ps -q` ; sudo docker kill ${id}
+	sudo docker kill $(sudo docker ps -q)
