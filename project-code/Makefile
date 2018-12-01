@@ -1,10 +1,10 @@
 .PHONY: update-environment
-
 update-environment:
 	sudo apt-get update
 	sudo apt-get -y upgrade
-
-docker-install-ubuntu18-10:
+	
+.PHONY: docker-install
+docker-install:
 	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo apt-key fingerprint 0EBFCD88
@@ -12,10 +12,11 @@ docker-install-ubuntu18-10:
 	sudo apt-get update
 	sudo apt-get install docker-ce
 
+.PHONY: docker-build-image
 docker-build-image:
 	cd src/docker ; sudo docker build -t test_app . ; cd ../../
 
-
+.PHONY: docker-run-image
 docker-run-image:
 	sudo docker run -p 4000:80 test_app 
 
@@ -33,23 +34,24 @@ packages-install:
 download-file:
 	sudo apt-get install -y unzip zip ; kaggle datasets download -d brycecf/give-me-some-credit-dataset ; unzip -o give-me-some-credit-dataset.zip -d data/raw ; rm -f give-me-some-credit-dataset.zip
 
-
 preprocessing-files:
 	python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl
 	python3 src/data/preprocessing.py data/raw/cs-test.csv data/interim/testing.pkl
 
-
-
 prepare-test-file: data/interim/testing.pkl
 	python3 src/data/to_json.py data/interim/testing.pkl data/interim/test.json 
 
+create-model:
+	python3 src/data/train_data.py data/processed/training.pkl src/model/xgboost_model.pkl
 
 .PHONY: clean
 clean:
 	rm -f data/raw/*.csv
 	rm -f data/raw/*.xls
 	rm -f data/processed/*.pkl
-	rm -f data/interim/*.json
+	rm -f data/interim/*.pkl
+	rm -f data/processed/*.json
+	rm -f src/model/*.pkl
 
 .PHONY: post-test-data
 post-test-data: 
