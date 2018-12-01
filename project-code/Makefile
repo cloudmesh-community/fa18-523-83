@@ -2,7 +2,8 @@
 update-environment:
 	sudo apt-get update
 	sudo apt-get -y upgrade
-	
+
+
 .PHONY: docker-install
 docker-install:
 	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
@@ -20,7 +21,7 @@ docker-build-image:
 docker-run-image:
 	sudo docker run -p 4000:80 test_app 
 
-.PHONY: packages-install		
+.PHONY: packages-install	
 packages-install:
 	sudo apt install python3-pip
 	sudo pip3 install click
@@ -55,4 +56,4 @@ clean:
 
 .PHONY: post-test-data
 post-test-data: 
-        curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:4000/json-get-results
+	curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:4000/json-get-results
