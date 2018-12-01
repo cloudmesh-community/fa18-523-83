@@ -142,9 +142,11 @@ The goal is to determine whether someone will experience financial distress in t
 
 * **Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
 
-* **XGBoost**:
+* **XGBoost**: xgboost is
 
-* **Neural Network**:
+>'a scalable and accurate implementation of gradient boosting machines and it has proven to push the limits of computing power for boosted trees algorithms as it was built and developed for the sole purpose of model performance and computational speed [https://www.kdnuggets.com/2017/10/xgboost-top-machine-learning-method-kaggle-explained.html]
+
+* **Neural Network**: 
 
 * **Support Vector Machine**:
 
