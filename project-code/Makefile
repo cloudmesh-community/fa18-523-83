@@ -43,7 +43,7 @@ prepare-test-file: data/interim/testing.pkl
 	python3 src/data/to_json.py data/interim/testing.pkl data/interim/test.json 
 
 create-model:
-	python3 src/data/train_data.py data/processed/training.pkl src/model/xgboost_model.pkl
+	python3 src/data/train_data.py data/processed/training.pkl src/docker/xgboost_model.pkl
 
 .PHONY: clean
 clean:
