@@ -46,7 +46,7 @@ docker-run-image:
 	
 .PHONY: packages-install		
 packages-install:
-
+	sudo apt install python3-pip
 	sudo pip3 install click
 	sudo pip3 install pandas
 	sudo pip3 install jupyter
