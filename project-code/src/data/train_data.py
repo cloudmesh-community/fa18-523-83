@@ -4,9 +4,6 @@ from preprocessing import read_pickle
 import click
 import pandas as pd
 
-def simple_label(df):
-    df.columns=['id','y','x1','x2','x3','x4','x5']
-    return df
 
 def split_data(df):
     x = df.iloc[:,2:-1]
@@ -33,7 +30,6 @@ def save_model(model, x, y, output_pickle):
 @click.argument('output_pickle', type=click.Path(writable=True, dir_okay=False))
 def main(input_pickle, output_pickle):
     df=read_pickle(input_pickle)
-    df=simple_label(df)
     df=get_balanced_data(df)
     x_balanced,y_balanced=split_data(df)
     model = XGBClassifier()
