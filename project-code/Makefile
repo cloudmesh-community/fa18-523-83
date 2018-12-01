@@ -53,4 +53,4 @@ clean:
 
 .PHONY: post-test-data
 post-test-data: 
-	curl -X localhost:4000/json-get-results -d @data/interim/test.json --header 'Content-Type: application/json'
+        curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:4000/json-get-results
