@@ -61,3 +61,6 @@
 * Received review for paper, fixed paper based on feedback and fixed typo issue
 * Working on project 
 
+
+# Week 11/25/18 - 12/01/18
+* Continue to work on project
