@@ -53,7 +53,8 @@ packages-install:
 	sudo pip3 install sklearn
 	sudo pip3 install xgboost
 	sudo pip3 install flask
-	
+	sudo pip3 install kaggle
+
 download-file:
 	kaggle datasets download -d brycecf/give-me-some-credit-dataset
 	unzip -o give-me-some-credit-dataset.zip -d data/raw
