@@ -140,10 +140,12 @@ The goal is to determine whether someone will experience financial distress in t
 
 * **Random Forest**: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] 
 
-* **Binary Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
+* **Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
 
 * **XGBoost**:
-* **LightGBM**:
+
+* **Neural Network**:
+
 * **Support Vector Machine**:
 
 
