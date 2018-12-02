@@ -185,10 +185,13 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 #### Flask API
 
 
+
 #### Docker
 
 
+
 #### AWS EC2
+
 
 
 ### Prerequisites
@@ -205,7 +208,7 @@ In order the run the code and reproduce the run, the follow prerequisites need t
 
     ```sudo apt-get install make```
     
-This will allow the *make* command from *Makefile* to be run. The rest of the prerequisites packages and software can be run using *make* command.
+    This will allow the *make* command from *Makefile* to be run. The rest of the prerequisites packages and software can be run using *make* command.
 
 * **Project's Git Command**: install git command by running the following command:
 
@@ -232,13 +235,46 @@ The directory structure of the project are:
 
 #### Makefile
 
+Make
+
 #### Dockerfile
 
-#### requirements.txt 
+This file contains the instruction and components to build the docker image. The file content is:
+```
+FROM python:3.6
+
+WORKDIR /app
+
+COPY . /app
+
+
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+EXPOSE 80 
+
+CMD python ./test_app.py
+```
+
+Dockerfile includes six major steps: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. The steps instruct docker to know which programming language and version to use, temporary working directory, package dependencies, port to use, and the python main script to run.
+
+#### requirements.txt
+
+This file contains all necessarily packages to be part of building the docker image.
+The three packages that are required for Flask API app are:
+
+```
+flask
+sklearn
+xgboost
+```
 
 #### app.py
 
+
+
 #### Code Running Instruction
+
+
 
 ### Environment and Files Preparation
 
@@ -260,11 +296,11 @@ or run the one-step *make* command:
 
 ```make prep-all```
 
-### Analysis Reproducing
+### Analysis
 
 ```make evaluation```
 
-### Deployment Steps
+### Deployment
 
 Step 1: Build docker image
 
@@ -278,7 +314,8 @@ Step 3: In a new terminal, run the following command:
 
 ```make post-test-data```
 
-The result json file should be located in `data/processed/result.json`
+The result json file should be located in `data/processed/result.json`.
+
 
 ### Clean Up
 
@@ -289,6 +326,7 @@ The following command to clean up files after the deployment:
 ## Results
 
 
+
 ### Deployment Benchmarks
 
 
@@ -297,11 +335,14 @@ The following command to clean up files after the deployment:
 
 ## Limitations
 
+Data volume is limited due to the provided dataset is from a Kaggle competition; increasing in data volume would improve the prediction result. Futhermore, the project does not focus in security and authentication/authorization aspect of the code, most of the port and network are set to allow any IP access to EC2 server. Prediction results could also be improved by running and evaluating more other classification algorithms. Also, parameters can be enhanced to provide more customization to all algorithms to observe this specific pattern of training set.
 
 ## Conclusion
 
 
+
 ## Acknowledgements
 
+The author would like to thank professor Lakowski and his class's TAs for helping with materials, markdown writing techniques, and review of this project.
  
 ## References
