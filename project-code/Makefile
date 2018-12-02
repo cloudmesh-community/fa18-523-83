@@ -69,5 +69,5 @@ clean:
 
 .PHONY: post-test-data
 post-test-data: 
-	curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:4000/json-get-results
+	curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:80/son-get-results
 
