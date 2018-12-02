@@ -9,4 +9,4 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 80 
 
-CMD python ./test_app.py
+CMD python ./app.py
