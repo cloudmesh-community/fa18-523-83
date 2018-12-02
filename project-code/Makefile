@@ -36,11 +36,11 @@ docker-build-image:
 
 .PHONY: docker-run-image
 docker-run-image:
-	sudo docker run -p 4000:80  --name="$(APP_NAME)" $(APP_NAME)
+	sudo docker run -p 80:80  --name="$(APP_NAME)" $(APP_NAME)
 
 .PHONY: docker-stop
 docker-stop: 
-	docker stop $(APP_NAME); docker rm $(APP_NAME)
+	sudo docker stop $(APP_NAME); sudo docker rm $(APP_NAME)
 
 file-prep: download-file preprocessing-files prepare-test-file create-model
 
