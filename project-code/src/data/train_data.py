@@ -1,72 +1,39 @@
-import click
-import pandas
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import roc_curve, auc
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
+import pickle
+from xgboost import XGBClassifier
 from preprocessing import read_pickle
+import click
+import pandas as pd
 
 
-def simple_label(df):
-    df = ['id','y','x1','x2','x3','x4','x5','x6','x7','x8','x9']
-    return df
-
-def get_balanced_data(df):
-    df_majority = df[df['y']==0]
-    df_minority = df[df['y']==1]
-    
-    df_majority_downsampled = df_majority.sample( n=10026, random_state=123)
-    df_downsampled = pandas.concat([df_majority_downsampled, df_minority])
-	
-	
 def split_data(df):
-    x = df.iloc[:,2:-1]
-    y = df.iloc[:,1]
+    x = df[['RevolvingUtilizationOfUnsecuredLines', 'age', 'MonthlyIncome', 'NumberOfDependents', 'TotalNumberofTimesPastDue']]
+    y = df['SeriousDlqin2yrs']
     return x, y
 
 
-
-def LogisticRegression():
-    algorithm= LogisticRegression(solver='liblinear')
-    return algorithm
-
-
-def LogisticRegression_Penalized(x_train,y_train, x_test, y_test):
-    algorithm= LogisticRegression(C=500,penalty='l1', tol=0.10, solver='saga')
-    return algorithm
+def get_balanced_data(df):
+    df_majority = df[df['SeriousDlqin2yrs']==0]
+    df_minority = df[df['SeriousDlqin2yrs']==1]
+    
+    df_majority_downsampled = df_majority.sample( n=10026, random_state=123)
+    df_downsampled = pd.concat([df_majority_downsampled, df_minority])
+    return df_downsampled
 
 
-def RandomForestClassifier()
-    algorithm= RandomForestClassifier()
-    return algorithm
+def save_model(model, x, y, output_pickle):
+    model.fit(x,y)
+    with open(output_pickle,'wb') as f:
+        pickle.dump(model,f)
 
+@click.command()
+@click.argument('input_pickle', type=click.Path(exists=True, readable=True, dir_okay=False))
+@click.argument('output_pickle', type=click.Path(writable=True, dir_okay=False))
+def main(input_pickle, output_pickle):
+    df=read_pickle(input_pickle)
+    df=get_balanced_data(df)
+    x_balanced,y_balanced=split_data(df)
+    model = XGBClassifier()
+    save_model(model, x_balanced, y_balanced, output_pickle)
 
-
-def model_training(x_train,y_train, algorithm)
-    model=algorithm.fit(x_train, y_train)
-    return model
-
-def model_prediction(x_test, model)
-    y_pred = model.predict(x_test)
-    return y_pred
-
-def main():
-	
-    df=read_pickle(data/processed/training.pkl)
-    df=simple_label(df)
-    x,y=split_data(df)	
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
-	
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    main()

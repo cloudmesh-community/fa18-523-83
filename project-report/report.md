@@ -138,13 +138,19 @@ Methods that will not be used [@fa18-523-18-www-imbalanced-classes]:
  
 The goal is to determine whether someone will experience financial distress in the next two years, therefore, there will only be valuable in the label: Yes or No. With a binary classification problem on supervised data, it is best to use classification algorithms such as Random Forest, XGBoost, LightGBM, Support Vector Machine, Logistic regression.
 
-* **Random Forest**: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] 
+* **Random Forest**: an ensemble of Decision Tree algorithm, builds and merge multiple decision trees together to get average results for prediction [@fa18-523-83-www-random-forest] . Using Python, the algorithm can be used from *RandomForest()* function in *sklearn* package. 
 
-* **Binary Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression] 
+* **Logistic Regression**: uses an equation with weights for coefficient values of input values to make prediction. For Binary Logistic Regression, a threshold between 0 and 1 is needed to determine the category of the prediction [@fa18-523-83-www-logistic-regression]. This algorithm is *LogisticRegression()* function in *sklearn* package. 
 
-* **XGBoost**:
-* **LightGBM**:
-* **Support Vector Machine**:
+* **XGBoost**: xgboost is
+
+>'a scalable and accurate implementation of gradient boosting machines and it has proven to push the limits of computing power for boosted trees algorithms as it was built and developed for the sole purpose of model performance and computational speed [https://www.kdnuggets.com/2017/10/xgboost-top-machine-learning-method-kaggle-explained.html].
+
+There is an XGBoost API that can be called via *sklearn* using function *XGBClassier*.
+
+* **Neural Network**: neural network is a machine learning algorithm that is inspired by the human brain. Neural network identifies the pattern of input data through multiple layers of artificial neural layers [https://www.upwork.com/hiring/data/neural-networks-demystified/]. The function *MLPClassifier* from *sklearn* is one of the Neural Network algorithm for classification problem.
+
+* **Support Vector Machine**: an algorithm that find patterns and predict output data by finding hyperplane(s) in an N-dimensional space [https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47] . The function *LinearSVC* from *sklearn* is one of the Support Vector Machine algorithms for classification problem.
 
 
 
@@ -165,31 +171,54 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 
 #### Python and Python Packages
 
+* **click**: allows arguments to be passed to python code.
+
+* **sklearn**: contains off-the-shelf machine learning algorithms packages with evaluation/report functions to cross validation, shuffle data, and report metrics
+
+* **xgboost**: contains xgboost algorithm  
+
+* **pandas**: allows easy-to-use abilities to read, process, compute, slice, write and store data via dataframe and pickle
+
+* **flask**: allows the ability to run and process APIs via web services via Python
+
 
 #### Flask API
+
 
 
 #### Docker
 
 
+
 #### AWS EC2
+
 
 
 ### Prerequisites
 
 In order the run the code and reproduce the run, the follow prerequisites need to be met:
 
+* **Ubuntu 18.04 Bionic Beaver or 18.10 Cosmic Cuttlefish Server**: all codes are were and tested on Ubuntu 18.04 and 18.10 Server
+
 * **Kaggle Account**: a Kaggle account is required to pull data from Kaggle.
 
-* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` and save in *project-code* folder cloned from github [@fa18-523-83-www-kaggle-api-github]. 
+* **Kaggle API Credentials File**: after the Kaggle account is created, go to the *Account* tab of user profile and select *Create API Token* to generate and download `kaggle.json` and save as `kaggle.json` at `~/.kaggle` directory and set the permission to 600  [@fa18-523-83-www-kaggle-api-github]. 
 
-* **Make**: ensure that *make* is installed. If not, use `apt-get install make` to install *make*. This will allow the *make* command from Makefile to be run. The rest of the prerequisites packages and software can be run using *make* command.
+* **Make**: ensure that *make* is installed. If not, use the following command to install *make*:
+
+    ```sudo apt-get install make```
+    
+    This will allow the *make* command from *Makefile* to be run. The rest of the prerequisites packages and software can be run using *make* command.
+
+* **Project's Git Command**: install git command by running the following command:
+
+    ```sudo apt-get install git-core```
 
 * **Project's Github Repository Cloned**: ensure all project are cloned from github using the following command:
 
-    ```git clone https://github.com/cloudmesh-community/fa18-523-83.git```
+    ```sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git```
 
-* **AWS Account** : an AWS account is required to be able to launch a cloud server instance for deployment and benchmarking results. The AWS account can be created via AWS EC2 page [@fa18-523-83-www-aws-ec2]. Credit card information is required during registration but the server instance can be launch for free. 
+* **AWS Account** : an AWS account is required to be able to launch a cloud server instance for deployment and benchmarking results. The AWS account can be created via AWS EC2 page [@fa18-523-83-www-aws-ec2]. Credit card information is required during registration but the server instance can be launch for free.
 
 * **Setting up EC2 Server Instance**: 
 
@@ -201,12 +230,101 @@ The directory structure of the project are:
 ```tree command```
 
 #### LICENSE
+
 #### README
-#### Makefile 
-#### Dockerfile 
-#### requirements.txt 
+
+#### Makefile
+
+Make
+
+#### Dockerfile
+
+This file contains the instruction and components to build the docker image. The file content is:
+```
+FROM python:3.6
+
+WORKDIR /app
+
+COPY . /app
+
+
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+EXPOSE 80 
+
+CMD python ./test_app.py
+```
+
+Dockerfile includes six major steps: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. The steps instruct docker to know which programming language and version to use, temporary working directory, package dependencies, port to use, and the python main script to run.
+
+#### requirements.txt
+
+This file contains all necessarily packages to be part of building the docker image.
+The three packages that are required for Flask API app are:
+
+```
+flask
+sklearn
+xgboost
+```
+
+#### app.py
+
+
+
+#### Code Running Instruction
+
+
+
+### Environment and Files Preparation
+
+After all the prerequisites are met and the Ubuntu server is up and running, the follow steps can be used to reproduce the environment and files preparation process starting at the directory that the *Makefile* is in:
+
+Step 1: Environment preparation
+
+```make prepare-environment```
+
+Step 2: Download data files from Kaggle
+
+```make download-file```
+
+Step 3: Prepare Train and Test files:
+
+```make prepare-files```
+
+or run the one-step *make* command:
+
+```make prep-all```
+
+### Analysis
+
+```make evaluation```
+
+### Deployment
+
+Step 1: Build docker image
+
+```make docker-build-image```
+
+Step 2: Run docker image
+
+```make docker-run-image```
+
+Step 3: In a new terminal, run the following command:
+
+```make post-test-data```
+
+The result json file should be located in `data/processed/result.json`.
+
+
+### Clean Up
+
+The following command to clean up files after the deployment:
+
+```make clean```
 
 ## Results
+
 
 
 ### Deployment Benchmarks
@@ -217,11 +335,14 @@ The directory structure of the project are:
 
 ## Limitations
 
+Data volume is limited due to the provided dataset is from a Kaggle competition; increasing in data volume would improve the prediction result. Futhermore, the project does not focus in security and authentication/authorization aspect of the code, most of the port and network are set to allow any IP access to EC2 server. Prediction results could also be improved by running and evaluating more other classification algorithms. Also, parameters can be enhanced to provide more customization to all algorithms to observe this specific pattern of training set.
 
 ## Conclusion
 
 
+
 ## Acknowledgements
 
+The author would like to thank professor Lakowski and his class's TAs for helping with materials, markdown writing techniques, and review of this project.
  
 ## References

@@ -16,7 +16,7 @@ def preprocessing(df):
     #Replace missing or bad data with median value
     df['NumberOfDependents']= df['NumberOfDependents'].fillna((df['NumberOfDependents'].median()))
     df['MonthlyIncome']= df['MonthlyIncome'].fillna(df['MonthlyIncome'].median())
-    df_prep=df.replace({'age': {0: training['age'].median()}}) 
+    df_prep=df.replace({'age': {0: df['age'].median()}}) 
     
     #drop DebtRatio due to low correllation 
     df_prep=df_prep.drop('DebtRatio', 1)
@@ -29,7 +29,7 @@ def preprocessing(df):
     df_prep=df_prep.drop('NumberOfTimes90DaysLate', 1)
     
     #drop highly correlated features 
-    df_prep['TotalNumberOfOpenLines']= training_prep['NumberOfOpenCreditLinesAndLoans'] + training_prep['NumberRealEstateLoansOrLines'] 
+    df_prep['TotalNumberOfOpenLines']= df_prep['NumberOfOpenCreditLinesAndLoans'] + df_prep['NumberRealEstateLoansOrLines'] 
     df_prep=df_prep.drop('NumberOfOpenCreditLinesAndLoans', 1)
     df_prep=df_prep.drop('NumberRealEstateLoansOrLines', 1)
 
