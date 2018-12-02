@@ -33,6 +33,8 @@ def json_get_results():
 
     x=df[['RevolvingUtilizationOfUnsecuredLines','age','MonthlyIncome','NumberOfDependents','TotalNumberofTimesPastDue']]
 
+    print(x)
+    
     df_result=df['Unnamed: 0']
 
     with open('xgboost_model.pkl','rb') as f:
