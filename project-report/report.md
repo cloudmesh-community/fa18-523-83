@@ -302,24 +302,21 @@ in *sklearn* with a parameter of `cv=10` to allow the data to be re-shuffled
 and re-validated ten times. It is to ensure a high-quality result and optimize 
 the data volume. The results are the average of all ten runs. 
 
+|                 | LR   | LR Pnlzd | RF   | LSVC  | LSVC Pnlzd | XGBoost | XGBoost Pnlzd | MLPClassifier | MLPClassifier Pnlzd | 
+|-----------------|------|----------|------|-------|------------|---------|---------------|---------------|---------------------| 
+| fit_time        | 0.64 | 0.43     | 2.50 | 32.10 | 31.87      | 5.34    | 5.10          | 36.90         | 12.13               | 
+| score_time      | 0.03 | 0.02     | 0.26 | 0.02  | 0.02       | 0.35    | 0.30          | 0.28          | 0.17                | 
+| test_f1         | 0.00 | 0.00     | 0.11 | 0.01  | 0.01       | 0.03    | 0.00          | 0.05          | 0.00                | 
+| train_f1        | 0.00 | 0.00     | 0.86 | 0.01  | 0.01       | 0.03    | 0.00          | 0.05          | 0.00                | 
+| test_accuracy   | 0.93 | 0.93     | 0.93 | 0.87  | 0.93       | 0.93    | 0.93          | 0.88          | 0.93                | 
+| train_accuracy  | 0.93 | 0.93     | 0.98 | 0.87  | 0.93       | 0.93    | 0.93          | 0.88          | 0.93                | 
+| test_recall     | 0.00 | 0.00     | 0.07 | 0.06  | 0.00       | 0.01    | 0.00          | 0.11          | 0.00                | 
+| train_recall    | 0.00 | 0.00     | 0.77 | 0.06  | 0.00       | 0.02    | 0.00          | 0.11          | 0.00                | 
+| test_precision  | 0.00 | 0.00     | 0.27 | 0.06  | 0.07       | 0.49    | 0.20          | 0.10          | 0.00                | 
+| train_precision | 0.00 | 0.00     | 0.99 | 0.04  | 0.05       | 0.60    | 0.25          | 0.31          | 0.01                | 
+| test_roc_auc    | 0.64 | 0.58     | 0.68 | 0.59  | 0.58       | 0.80    | 0.79          | 0.64          | 0.54                | 
+| train_roc_auc   | 0.64 | 0.58     | 1.00 | 0.58  | 0.58       | 0.80    | 0.80          | 0.64          | 0.54                | 
 
-
-|                 |           | Logistic  |               |            | Linear    |         |           |               |               |
-|                 | Logistic  | Regression|               |            | SVC       |         | XGBoost   |               | MLPClassifier |
-|                 | Regression| Penalized | Random Forest | Linear SVC | Penalized | XGBoost | Penalized | MLPClassifier |  Penalized    | 
-|-----------------|-----------------------|---------------|------------|-----------|---------|-----------|---------------|---------------| 
-| fit_time        | 0.64      | 0.43      | 2.50          | 32.10      | 31.87     | 5.34    | 5.10      | 36.90         | 12.13         | 
-| score_time      | 0.03      | 0.02      | 0.26          | 0.02       | 0.02      | 0.35    | 0.30      | 0.28          | 0.17          | 
-| test_f1         | 0.00      | 0.00      | 0.11          | 0.01       | 0.01      | 0.03    | 0.00      | 0.05          | 0.00          | 
-| train_f1        | 0.00      | 0.00      | 0.86          | 0.01       | 0.01      | 0.03    | 0.00      | 0.05          | 0.00          | 
-| test_accuracy   | 0.93      | 0.93      | 0.93          | 0.87       | 0.93      | 0.93    | 0.93      | 0.88          | 0.93          | 
-| train_accuracy  | 0.93      | 0.93      | 0.98          | 0.87       | 0.93      | 0.93    | 0.93      | 0.88          | 0.93          | 
-| test_recall     | 0.00      | 0.00      | 0.07          | 0.06       | 0.00      | 0.01    | 0.00      | 0.11          | 0.00          | 
-| train_recall    | 0.00      | 0.00      | 0.77          | 0.06       | 0.00      | 0.02    | 0.00      | 0.11          | 0.00          | 
-| test_precision  | 0.00      | 0.00      | 0.27          | 0.06       | 0.07      | 0.49    | 0.20      | 0.10          | 0.00          | 
-| train_precision | 0.00      | 0.00      | 0.99          | 0.04       | 0.05      | 0.60    | 0.25      | 0.31          | 0.01          | 
-| test_roc_auc    | 0.64      | 0.58      | 0.68          | 0.59       | 0.58      | 0.80    | 0.79      | 0.64          | 0.54          | 
-| train_roc_auc   | 0.64      | 0.58      | 1.00          | 0.58       | 0.58      | 0.80    | 0.80      | 0.64          | 0.54          | 
 
 
 *Accuracy* will not be a relevant metric to determine the performance of each 
@@ -336,8 +333,7 @@ samples are needed for each label to ensure a result of the balanced-label
 dataset. This evaluation will not require penalized algorithms.
 
 
-|                 | Logistic  |               |         |               |            | 
-|                 | Logistic  | Random Forest | XGBoost | MLPClassifier | Linear SVC | 
+|                 | LR        | Random Forest | XGBoost | MLPClassifier | Linear SVC | 
 |-----------------|-----------|---------------|---------|---------------|------------| 
 | fit_time        | 0.16      | 0.34          | 0.66    | 1.61          | 1.59       | 
 | score_time      | 0.02      | 0.06          | 0.06    | 0.02          | 0.01       | 
@@ -351,7 +347,6 @@ dataset. This evaluation will not require penalized algorithms.
 | train_precision | 0.60      | 0.98          | 0.74    | 0.60          | 0.47       | 
 | test_roc_auc    | 0.64      | 0.74          | 0.79    | 0.59          | 0.55       | 
 | train_roc_auc   | 0.64      | 1.00          | 0.80    | 0.60          | 0.56       | 
-
 
 *Accuracy* is now an important factor to determine how well a model performed. 
 In this case, *XGBoost* has the highest accuracy out of all models as well as a 
