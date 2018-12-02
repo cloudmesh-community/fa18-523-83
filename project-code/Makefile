@@ -11,7 +11,6 @@ prep_env: update-environment packages-install docker-install
 update-environment:
 	sudo apt-get update
 	sudo apt-get -y upgrade
-	echo "Environment Update Step Completed" >> runtime.log
 
 
 .PHONY: docker-install
