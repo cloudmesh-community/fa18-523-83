@@ -171,13 +171,15 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 
 #### Python and Python Packages
 
-* **click**:
+* **click**: allows arguments to be passed to python code.
 
-* **sklearn**
+* **sklearn**: contains off-the-shelf machine learning algorithms packages with evaluation/report functions to cross validation, shuffle data, and report metrics
 
-* **xgboost*
+* **xgboost**: contains xgboost algorithm  
 
-* **
+* **pandas**: allows easy-to-use abilities to read, process, compute, slice, write and store data via dataframe and pickle
+
+* **flask**: allows the ability to run and process APIs via web services via Python
 
 
 #### Flask API
@@ -236,8 +238,53 @@ The directory structure of the project are:
 
 #### app.py
 
-#### Python Codes
+#### Code Running Instruction
 
+### Environment and Files Preparation
+
+After all the prerequisites are met and the Ubuntu server is up and running, the follow steps can be used to reproduce the environment and files preparation process starting at the directory that the *Makefile* is in:
+
+Step 1: Environment preparation
+
+```make prepare-environment```
+
+Step 2: Download data files from Kaggle
+
+```make download-file```
+
+Step 3: Prepare Train and Test files:
+
+```make prepare-files```
+
+or run the one-step *make* command:
+
+```make prep-all```
+
+### Analysis Reproducing
+
+```make evaluation```
+
+### Deployment Steps
+
+Step 1: Build docker image
+
+```make docker-build-image```
+
+Step 2: Run docker image
+
+```make docker-run-image```
+
+Step 3: In a new terminal, run the following command:
+
+```make post-test-data```
+
+The result json file should be located in `data/processed/result.json`
+
+### Clean Up
+
+The following command to clean up files after the deployment:
+
+```make clean```
 
 ## Results
 
