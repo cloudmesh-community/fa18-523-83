@@ -6,8 +6,8 @@ import pandas as pd
 
 
 def split_data(df):
-    x = df.iloc[:,2:-1]
-    y = df.iloc[:,1]
+    x = df[['RevolvingUtilizationOfUnsecuredLines', 'age', 'MonthlyIncome', 'NumberOfDependents', 'TotalNumberofTimesPastDue']]
+    y = df['SeriousDlqin2yrs']
     return x, y
 
 
