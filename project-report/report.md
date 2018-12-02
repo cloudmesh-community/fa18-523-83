@@ -144,30 +144,83 @@ The goal is to determine whether someone will experience financial distress in t
 
 * **XGBoost**: xgboost is
 
->'a scalable and accurate implementation of gradient boosting machines and it has proven to push the limits of computing power for boosted trees algorithms as it was built and developed for the sole purpose of model performance and computational speed [https://www.kdnuggets.com/2017/10/xgboost-top-machine-learning-method-kaggle-explained.html].
+>'a scalable and accurate implementation of gradient boosting machines and it has proven to push the limits of computing power for boosted trees algorithms as it was built and developed for the sole purpose of model performance and computational speed [@fa18-523-83-www-xgboost-kdnuggets].
 
 There is an XGBoost API that can be called via *sklearn* using function *XGBClassier*.
 
-* **Neural Network**: neural network is a machine learning algorithm that is inspired by the human brain. Neural network identifies the pattern of input data through multiple layers of artificial neural layers [https://www.upwork.com/hiring/data/neural-networks-demystified/]. The function *MLPClassifier* from *sklearn* is one of the Neural Network algorithm for classification problem.
+* **Neural Network**: neural network is a machine learning algorithm that is inspired by the human brain. Neural network identifies the pattern of input data through multiple layers of artificial neural layers [@fa18-523-83-www-neural-network]. The function *MLPClassifier* from *sklearn* is one of the Neural Network algorithm for classification problem.
 
-* **Support Vector Machine**: an algorithm that find patterns and predict output data by finding hyperplane(s) in an N-dimensional space [https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47] . The function *LinearSVC* from *sklearn* is one of the Support Vector Machine algorithms for classification problem.
-
-
+* **Support Vector Machine**: an algorithm that find patterns and predict output data by finding hyperplane(s) in an N-dimensional space [@fa18-523-83-www-svm] . The function *LinearSVC* from *sklearn* is one of the Support Vector Machine algorithms for classification problem.
 
 ### Result Comparison
 
- 
+There are two sets of run that were evaluated in the provided dataset: normal run and imbalanced run. On a normal run, due to imbalanced data distribution, it is important to compare metrics for algorithms with defaulted parameters and algorithms with penalized configured parameters.
 
+In order to evaluate and determine which algorithms to use, it is important to understand what each metric mean and what the expectation of each metric is. In the evaluation, there are five metrics that will be used to compare between algorithms/model [@fa18-523-83-www-metrics-evaluate]: 
+
+* **Classification Accuracy**: the ratio between correct prediction over the total sample sizes. It only works well if we have a balanced class label distribution.
+
+* **Area Under Curve (AUC)**: often used for binary classification problem. AUC measures the area under the curve of False Positive Rate vs True Positive Rate plot. AUC ranges from 0 to 1 and a higher AUC indicates a better performed model.
+
+* **Precision**: the number of correct positive results divided by the number of positive results predicted. Precision indicates how many instances that were predicted correctly.
+
+* **Recall**: the number of correct positive results divided by the number of records that should have been identified as positive. Recall indicates how much data was misclassified.
+
+* **F1 Score**: F1 score is the balance between precision and recall, a better model gives higher F1 score.
+
+The metrics for all models are being performed by `cross_validation()` function in *sklearn* with a parameter of `cv=10` to allow the data to be re-shuffled and re-validated ten times. It is to ensure a high quality result and optimize the data volume. The results is the average of all ten runs. 
+
+
+
+|                 | Logistic Regression | Logistic Regression Penalized | Random Forest | Linear SVC | Linear SVC Penalized | XGBoost | XGBoost Penalized | MLPClassifier | MLPClassifier Penalized | 
+|-----------------|---------------------|-------------------------------|---------------|------------|----------------------|---------|-------------------|---------------|-------------------------| 
+| fit_time        | 0.64                | 0.43                          | 2.50          | 32.10      | 31.87                | 5.34    | 5.10              | 36.90         | 12.13                   | 
+| score_time      | 0.03                | 0.02                          | 0.26          | 0.02       | 0.02                 | 0.35    | 0.30              | 0.28          | 0.17                    | 
+| test_f1         | 0.00                | 0.00                          | 0.11          | 0.01       | 0.01                 | 0.03    | 0.00              | 0.05          | 0.00                    | 
+| train_f1        | 0.00                | 0.00                          | 0.86          | 0.01       | 0.01                 | 0.03    | 0.00              | 0.05          | 0.00                    | 
+| test_accuracy   | 0.93                | 0.93                          | 0.93          | 0.87       | 0.93                 | 0.93    | 0.93              | 0.88          | 0.93                    | 
+| train_accuracy  | 0.93                | 0.93                          | 0.98          | 0.87       | 0.93                 | 0.93    | 0.93              | 0.88          | 0.93                    | 
+| test_recall     | 0.00                | 0.00                          | 0.07          | 0.06       | 0.00                 | 0.01    | 0.00              | 0.11          | 0.00                    | 
+| train_recall    | 0.00                | 0.00                          | 0.77          | 0.06       | 0.00                 | 0.02    | 0.00              | 0.11          | 0.00                    | 
+| test_precision  | 0.00                | 0.00                          | 0.27          | 0.06       | 0.07                 | 0.49    | 0.20              | 0.10          | 0.00                    | 
+| train_precision | 0.00                | 0.00                          | 0.99          | 0.04       | 0.05                 | 0.60    | 0.25              | 0.31          | 0.01                    | 
+| test_roc_auc    | 0.64                | 0.58                          | 0.68          | 0.59       | 0.58                 | 0.80    | 0.79              | 0.64          | 0.54                    | 
+| train_roc_auc   | 0.64                | 0.58                          | 1.00          | 0.58       | 0.58                 | 0.80    | 0.80              | 0.64          | 0.54                    | 
+
+
+*Accuracy* will not be a relevant metric to determine the performance of each model. It is included to emphasize a point that a model can provide a really high accuracy but can still perform poorly. In term of *F1 Score*, *Random Forest* seems to perform well comparing to the rest of the models. In term of *AUC*, *Random Forest* has a high *AUC* value in training dataset and a lower *AUC* value in test dataset whereas *XGBoost* performed consistently in both train and test run.
+
+The same algorithms will be apply to the balanced dataset. *Sklearn* has a function that allow data to be shuffle with a specification of how many samples are needed for each label to ensure a result of balanced-label dataset. This evaluation will not require penalized algorithms.
+
+|                 | Logistic Regression | Random Forest | XGBoost | MLPClassifier | Linear SVC | 
+|-----------------|---------------------|---------------|---------|---------------|------------| 
+| fit_time        | 0.16                | 0.34          | 0.66    | 1.61          | 1.59       | 
+| score_time      | 0.02                | 0.06          | 0.06    | 0.02          | 0.01       | 
+| test_f1         | 0.61                | 0.66          | 0.72    | 0.51          | 0.26       | 
+| train_f1        | 0.61                | 0.97          | 0.73    | 0.51          | 0.26       | 
+| test_accuracy   | 0.60                | 0.68          | 0.73    | 0.55          | 0.50       | 
+| train_accuracy  | 0.60                | 0.97          | 0.73    | 0.55          | 0.50       | 
+| test_recall     | 0.61                | 0.63          | 0.72    | 0.58          | 0.36       | 
+| train_recall    | 0.61                | 0.96          | 0.73    | 0.59          | 0.36       | 
+| test_precision  | 0.60                | 0.70          | 0.73    | 0.59          | 0.40       | 
+| train_precision | 0.60                | 0.98          | 0.74    | 0.60          | 0.47       | 
+| test_roc_auc    | 0.64                | 0.74          | 0.79    | 0.59          | 0.55       | 
+| train_roc_auc   | 0.64                | 1.00          | 0.80    | 0.60          | 0.56       | 
+
+
+*Accuracy* is now an important factor to determine how well a model performed. In this case, *XGBoost* has the highest accuracy out of all models as well as a high and consistent *AUC* value. *Random Forest* also returns great result but seems to be inconsistent due to its higher result in train data comparing to test data.
+
+After both comparisons, *XGBoost* is the model that yields high and consistent performance. The *XGBoost* model on balanced dataset will be saved and used in the credit score application to predict the banking credit problem we are trying to solved.
 
 ## Implementation
 
-
 ### Technologies Used
+
+#### Versions
 
 #### Kaggle API
 
 Kaggle API provides the ability to pull and push data from Kaggle website using command tool implemented in Python 3. The Kaggle API github page provide detailed Installation, API credentials and commands instruction [@fa18-523-83-www-kaggle-api-github]. 
-
 
 #### Python and Python Packages
 
@@ -181,18 +234,16 @@ Kaggle API provides the ability to pull and push data from Kaggle website using 
 
 * **flask**: allows the ability to run and process APIs via web services via Python
 
-
 #### Flask API
 
-
+Flask API is a Python package that allows RESTful web service from Python. 
 
 #### Docker
 
-
+Docker creates containers that are standalone images that bundle all dependent configuration files, packages, tools, libraries, and applications. User can run application through images without having to worry about the rest of the dependent components.
 
 #### AWS EC2
-
-
+AWS EC2 provides cloud server to run and deploy the code.
 
 ### Prerequisites
 
@@ -220,8 +271,21 @@ In order the run the code and reproduce the run, the follow prerequisites need t
 
 * **AWS Account** : an AWS account is required to be able to launch a cloud server instance for deployment and benchmarking results. The AWS account can be created via AWS EC2 page [@fa18-523-83-www-aws-ec2]. Credit card information is required during registration but the server instance can be launch for free.
 
-* **Setting up EC2 Server Instance**: 
+* **Setting up EC2 Server Instance**: once the AWS is created, AWS EC2 instances can be created. Once logged in, the user can *Launce Instance* with the following configurations [@fa18-523-83-www-aws-ec2]:
 
+     *  Step 1: Choose an Amazon Machine Image (AMI) Cancel and Exit: select *Ubuntu Server 18.04 LTS (HVM), SSD Volume Type*
+     *  Step 2: Choose an Instance Type: default to free tier option
+     *  Step 3: Configure Instance Details: use all default options 
+     *  Step 4: Add Storage: use all default options 
+     *  Step 5: Add Tags: use all default options 
+     *  Step 6: Configure Security Group: allow SSH (Port 22) and HTTPS (Port 443) with Source *0.0.0.0/0* and *::/0*
+     *  Step 7: Review Instance Launch: after hitting launce, make sure to choose an existing or create new key pair and download the key. This will be the only time user can download a key pair. Ensure the key permission is 400. 
+ 
+To connect to AWS EC2 server, run the following command:
+
+```
+ssh -i <key-file-and-directory> ubuntu@<AWS-public-DNS>
+```     
 
 ### Project Code Structure and Components
 
@@ -231,11 +295,15 @@ The directory structure of the project are:
 
 #### LICENSE
 
+LICENSE file indicates which licensing the project and its code are under. In this case, it is MIT license.
+
 #### README
+
+README file provides a short description of the project and code components, and instruction on how to run the code.
 
 #### Makefile
 
-Make
+Makefile contains a list of shortcut commands that can easily run via a *make* command when the user is in the directory where the Makefile is.
 
 #### Dockerfile
 
@@ -252,7 +320,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 80 
 
-CMD python ./test_app.py
+CMD python ./app.py
 ```
 
 Dockerfile includes six major steps: FROM, WORKDIR, COPY, RUN, EXPOSE, CMD. The steps instruct docker to know which programming language and version to use, temporary working directory, package dependencies, port to use, and the python main script to run.
@@ -266,17 +334,23 @@ The three packages that are required for Flask API app are:
 flask
 sklearn
 xgboost
+pandas
 ```
 
 #### app.py
 
+app.py is the main app that utilizes flask API to take JSON file data from API *POST* command and apply the machine learning model to output prediction into json file. 
 
+#### Other python codes
 
-#### Code Running Instruction
+* preprocessing.py: python code that reads raw data and clean the data into a good form to feed into machine learning algorithms
+* to_json.py: python code to convert file from dataframe format to json format
+* train_data.py: python code to train and build XGBoost model and output the model for the credit flask API app
+* evaluation.py: python code to evaluate multiple algorithms and output results into csv files
 
+### Code Running Instruction
 
-
-### Environment and Files Preparation
+#### Environment and Files Preparation
 
 After all the prerequisites are met and the Ubuntu server is up and running, the follow steps can be used to reproduce the environment and files preparation process starting at the directory that the *Makefile* is in:
 
@@ -296,11 +370,11 @@ or run the one-step *make* command:
 
 ```make prep-all```
 
-### Analysis
+#### Analysis
 
 ```make evaluation```
 
-### Deployment
+#### Deployment
 
 Step 1: Build docker image
 
@@ -317,15 +391,13 @@ Step 3: In a new terminal, run the following command:
 The result json file should be located in `data/processed/result.json`.
 
 
-### Clean Up
+#### Clean Up
 
 The following command to clean up files after the deployment:
 
 ```make clean```
 
 ## Results
-
-
 
 ### Deployment Benchmarks
 
