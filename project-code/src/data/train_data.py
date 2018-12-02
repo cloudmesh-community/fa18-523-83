@@ -12,8 +12,8 @@ def split_data(df):
 
 
 def get_balanced_data(df):
-    df_majority = df[df['y']==0]
-    df_minority = df[df['y']==1]
+    df_majority = df[df['SeriousDlqin2yrs']==0]
+    df_minority = df[df['SeriousDlqin2yrs']==1]
     
     df_majority_downsampled = df_majority.sample( n=10026, random_state=123)
     df_downsampled = pd.concat([df_majority_downsampled, df_minority])
