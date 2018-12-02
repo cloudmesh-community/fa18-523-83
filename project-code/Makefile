@@ -36,7 +36,7 @@ docker-build-image:
 
 .PHONY: docker-run-image
 docker-run-image:
-	sudo docker run -p 80:80  --name="$(APP_NAME)" $(APP_NAME)
+	sudo docker run -p 4000:80  --name="$(APP_NAME)" $(APP_NAME)
 
 .PHONY: docker-stop
 docker-stop: 
@@ -69,5 +69,5 @@ clean:
 
 .PHONY: post-test-data
 post-test-data: 
-	curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:80/son-get-results
+	curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:4000/son-get-results
 
