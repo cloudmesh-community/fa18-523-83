@@ -49,7 +49,7 @@ with the following configurations [@fa18-523-83-www-aws-ec2]:
 
     ```
     ssh -i <key-file-and-directory> ubuntu@<AWS-public-DNS>
-
+    ```
 
 * **Make**: ensure that *make* is installed. If not, use the following 
 command to install *make*:
@@ -74,8 +74,6 @@ GitHub using the following command:
     ```
     sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git
     ```
-
-    ```         
 
 * **Kaggle Account**: a Kaggle account is required to pull data from Kaggle.
 
