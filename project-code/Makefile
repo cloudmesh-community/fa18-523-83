@@ -49,8 +49,6 @@ file-prep: download-file preprocessing-files prepare-test-file create-model
 download-file:
 	sudo apt-get install -y unzip zip ; sudo kaggle datasets download -d brycecf/give-me-some-credit-dataset ; sudo unzip -o give-me-some-credit-dataset.zip -d data/raw ; sudo rm -f give-me-some-credit-dataset.zip
 
-prepare-files: preprocessing-files prepare-test-file
-
 preprocessing-files:
 	sudo python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl
 	sudo python3 src/data/preprocessing.py data/raw/cs-test.csv data/interim/testing.pkl
@@ -66,8 +64,9 @@ clean:
 	sudo rm -f data/raw/*.csv
 	sudo rm -f data/raw/*.xls
 	sudo rm -f data/processed/*.pkl
-	sudo rm -f data/interim/*.pkl
 	sudo rm -f data/processed/*.json
+	sudo rm -f data/interim/*.pkl
+	sudo rm -f data/interim/*.json
 	sudo rm -f src/docker/*.pkl
 
 .PHONY: post-test-data
