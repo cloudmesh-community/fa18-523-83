@@ -748,7 +748,7 @@ Instance Type: t2.micro (1 CPU and 1GB Memory) running Ubuntu Server
 
 |                 | LD Setting 1 | LD Setting 3 | AWS Server | 
 |-----------------|--------------|--------------|------------| 
-| prep file       | 0.16         | 0.34         | 0.66       | 
+| prep file       | 23.48 secs   | 0.34         | 0.66       | 
 | docker build    | 0.02         | 0.06         | 0.06       |
 
 
