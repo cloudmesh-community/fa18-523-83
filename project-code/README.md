@@ -151,6 +151,12 @@ The following command to clean up files after the deployment:
 make clean
 ```
 
+To stop docker service, run:
+
+```
+make docker-stop
+```
+
 
 ## Authors
 
@@ -159,4 +165,5 @@ make clean
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 
