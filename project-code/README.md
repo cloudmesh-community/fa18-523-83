@@ -239,5 +239,6 @@ file for details
 
 ## Acknowledgements
 
-The author would like to thank professor Lakowski and his class's TAs for 
-helping with materials, markdown writing techniques, and review of this project.
+The author would like to thank professor Gregor von Laszewski and his class's 
+TAs for helping with materials, markdown writing techniques, and review of this 
+project.
