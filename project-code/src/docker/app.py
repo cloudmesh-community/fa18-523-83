@@ -36,7 +36,7 @@ def json_get_results():
     df_result=pd.DataFrame()
     df_result['ID']=df['Unnamed: 0']
 
-    with open('src/docker/xgboost_model.pkl','rb') as f:
+    with open('xgboost_model.pkl','rb') as f:
     	model = pickle.load(f)
     
     y_predict=model.predict(x)
