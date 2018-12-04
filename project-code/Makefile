@@ -6,6 +6,7 @@ prepare-environment: update-environment packages-install docker-install
 
 .PHONY: update-environment
 update-environment:
+	sudo chmod 777 bin/report_time.sh
 	sudo apt-get update
 	sudo apt-get -y upgrade
 
