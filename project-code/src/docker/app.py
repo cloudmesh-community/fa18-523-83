@@ -3,24 +3,17 @@ import json
 import pandas as pd
 import pickle
 from xgboost import XGBClassifier
-#from flask_json import FlaskJSON, json_response
 
 app = Flask(__name__) #create the Flask app
 
-#FlaskJSON(app)
  
-
- 
-
 @app.route('/')
 
 def welcome_page():
 
     print('Credit Scoring Algorithm')
              
-            
-              
-
+                        
 @app.route('/json-get-results', methods=['POST']) #GET requests will be blocked
 
 def json_get_results():
