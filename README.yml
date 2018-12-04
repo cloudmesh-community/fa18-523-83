@@ -18,7 +18,7 @@ paper:
       url: https://github.com/cloudmesh-community/fa18-523-56/blob/master/paper/paper.md
       group: fa18-523-56
 project:
-    - title: Credit scoring algorithm and its implementation in production
-      keyword: Credit
+    - title: Credit Scoring Algorithm and Its Implementation in Production Environment fa18-523-83
+      keyword: fa18-523-83, machine learning, predict algorithm, classification, docker, deployment, API
       url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/project-report/report.md
       url: https://github.com/cloudmesh-community/fa18-523-83/blob/master/project-code
