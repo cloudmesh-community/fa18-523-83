@@ -46,7 +46,7 @@ def json_get_results():
     df_result['SeriousDlqin2yrs']=y_predict_df
 
     data= df_result.to_json(orient='records')
-    with open('data/processed/results.json', 'w') as fp:
+    with open('results.json', 'w') as fp:
         	fp.write(data + '\n')
 
     return 'JSON returned'
