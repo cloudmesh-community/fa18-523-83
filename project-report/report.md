@@ -23,8 +23,8 @@ the fast service a bank can provide to its customers.
 ## Keywords
 
 
-fa18-523-83, machine learning, predict algorithm, classification, devops, 
-optimization, API
+fa18-523-83, machine learning, predict algorithm, classification, docker, 
+deployment, API
 
  
 ## Introduction
