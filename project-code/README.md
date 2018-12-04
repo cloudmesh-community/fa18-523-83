@@ -1,4 +1,4 @@
-# Credit Scoring Algorithm and Its Implementation in Production Environment fa18-523-83
+# Credit Scoring Algorithm and its Implementation in Production Environment fa18-523-83
 
 The business problem that will be focused on is how to determine in real-time 
 whether or not a customer will be experiencing financial distress in the next 
