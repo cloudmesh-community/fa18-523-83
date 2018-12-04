@@ -1,12 +1,11 @@
 APP_NAME=credit_app
-SHELL = chmod 777 ./bin/report_time.sh ; ./bin/report_time.sh
+SHELL = sudo ./bin/report_time.sh
 
 .PHONY: prepare_environment
 prepare-environment: update-environment packages-install docker-install 
 
 .PHONY: update-environment
 update-environment:
-	sudo chmod 777 bin/report_time.sh
 	sudo apt-get update
 	sudo apt-get -y upgrade
 
