@@ -30,7 +30,9 @@ packages-install:
 	sudo pip3 install xgboost
 	sudo pip3 install flask
 	sudo pip3 install kaggle
-
+	sudo pip3 install matplotlib
+	sudo pip3 install seaborn
+	
 .PHONY: docker-build-image
 docker-build-image:
 	cd src/docker ; sudo docker build -t $(APP_NAME) . ; cd ../../
