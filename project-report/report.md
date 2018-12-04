@@ -62,7 +62,10 @@ move, set up and run the code from one environment to another.
 We are utilizing an existing dataset from the 'Give Me Some Credit' competition 
 on Kaggle to train and test algorithms and determine which algorithms would be 
 the best to predict the probability of someone experiencing financial distress 
-in the next two years [@fa18-523-83-www-gmsc-kaggle-competition].
+in the next two years [@fa18-523-83-www-gmsc-kaggle-competition]. However, due 
+to Kaggle competition dataset can no longer be downloaded after the competition 
+ended, the same data provided by the competition was reuploaded by a Kaggle user 
+in Kaggle Dataset section [@fa18-523-83-www-kaggle-dataset]
 
 The Kaggle competition contains a training set, a test set, and a data 
 dictionary. The training set contains 150,000 records of previous customer 
@@ -364,10 +367,7 @@ trying to solve.
 
 ## Implementation
 
-
 ### Technologies Used
-
-#### Versions
 
 #### Kaggle API
 
@@ -376,7 +376,7 @@ command tool implemented in Python 3. The Kaggle API GitHub page provide
 detailed Installation, API credentials and commands instruction 
 [@fa18-523-83-www-kaggle-api-github]. 
 
-#### Python and Python Packages
+#### Python Packages
 
 * **click**: allows arguments to be passed to python code.
 
@@ -392,9 +392,18 @@ and store data via dataframe and pickle
 * **flask**: allows the ability to run and process APIs via web services 
 via Python
 
-#### Flask API
+* **jupyter** : jupyter notebook package that allows user to run and see Python
+result without having to construct a full syntax Python application
 
-Flask API is a Python package that allows RESTful web service from Python. 
+* **kaggle**: Kaggle API allows user to source data from kaggle through command 
+line.
+
+* **flask**: Flask API is a Python package that allows RESTful web service from 
+Python. 
+
+* **matplotlib**: python package that allows graphing in Python
+
+* **seaborn**: another python package that allows more new graph types in Python
 
 #### Docker
 
@@ -407,6 +416,11 @@ the rest of the dependent components.
 
 AWS EC2 provides cloud services to host server, run and deploy the code.
 
+#### Other Technologies
+
+* GitHub
+* Ubuntu 18.04 Bionic Beaver or 18.10 Cosmic Cuttlefish Server
+
 ### Prerequisites
 
 In order the run the code and reproduce the run, the following prerequisites 
@@ -414,37 +428,6 @@ need to be met:
 
 * **Ubuntu 18.04 Bionic Beaver or 18.10 Cosmic Cuttlefish Server**: all codes 
 were tested on Ubuntu 18.04 and 18.10 Server
-
-* **Kaggle Account**: a Kaggle account is required to pull data from Kaggle.
-
-* **Kaggle API Credentials File**: after the Kaggle account is created, go to 
-the *Account* tab of user profile and select *Create API Token* to generate 
-and download `kaggle.json` and save as `kaggle.json` at `~/.kaggle` directory 
-and set the permission to 600  [@fa18-523-83-www-kaggle-api-github]. 
-
-* **Make**: ensure that *make* is installed. If not, use the following 
-command to install *make*:
-
-    ```
-    sudo apt-get install make
-    ```
-    
-  This will allow the *make* command from *Makefile* to be run. The rest 
-  of the prerequisites packages and software can be run using *make* command.
-
-* **Project's Git Command**: install git command by running the following 
-command:
-
-    ```
-    sudo apt-get install git-core
-    ```
-
-* **Project's Github Repository Cloned**: ensure all project is cloned from 
-GitHub using the following command:
-
-    ```
-    sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git
-    ```
 
 * **AWS Account** : an AWS account is required to be able to launch a cloud 
 server instance for deployment and benchmarking results. The AWS account can 
@@ -473,7 +456,41 @@ with the following configurations [@fa18-523-83-www-aws-ec2]:
 
     ```
     ssh -i <key-file-and-directory> ubuntu@<AWS-public-DNS>
-    ```     
+
+
+* **Make**: ensure that *make* is installed. If not, use the following 
+command to install *make*:
+
+    ```
+    sudo apt-get install make
+    ```
+    
+  This will allow the *make* command from *Makefile* to be run. The rest 
+  of the prerequisites packages and software can be run using *make* command.
+
+* **Project's Git Command**: install git command by running the following 
+command:
+
+    ```
+    sudo apt-get install git-core
+    ```
+
+* **Project's Github Repository Cloned**: ensure all project is cloned from 
+GitHub using the following command:
+
+    ```
+    sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git
+    ```
+
+    ```         
+
+* **Kaggle Account**: a Kaggle account is required to pull data from Kaggle.
+
+* **Kaggle API Credentials File**: after the Kaggle account is created, go to
+the *Account* tab of user profile and select *Create API Token* to generate 
+and download `kaggle.json` and save as `kaggle.json`. This file will be moved
+to a specific folder once *kaggle* package is installed 
+[@fa18-523-83-www-kaggle-api-github]. 
 
 ### Project Code Structure and Components
 
@@ -550,8 +567,7 @@ into a good form to feed into machine learning algorithms
 * to_json.py: python code to convert file from dataframe format to JSON format
 * train_data.py: python code to train and build XGBoost model and output the 
 model for the credit flask API app
-* evaluation.py: python code to evaluate multiple algorithms and output results 
-into CSV files
+* Python notebooks: 
 
 ### Code Running Instruction
 
@@ -559,37 +575,99 @@ into CSV files
 
 After all the prerequisites are met and the Ubuntu server is up and running, 
 the follow steps can be used to reproduce the environment and files preparation 
-process starting at the directory that the *Makefile* is in:
+process starting at the directory that the *Makefile* is in (to output *make* 
+command and runtime status into log file, append `2>&1 | tee report.log` next
+to every make command, e.g. `make clean 2>&1 | tee report.log`)
 
 Step 1: Environment preparation
+
+Option A: run one command to update, upgrade and install all required software
+and packages:
 
 ```
 make prepare-environment
 ```
 
-Step 2: Download data files from Kaggle
+Option B: run smaller command in the right order listed if there is a 
+connection failure during Option A
+
+To update and upgrade Ubuntu environmen:
+
+```
+make update-environment
+```
+
+To install other packges:
+
+```
+make packages-install
+```
+
+To install docker:
+
+```
+make docker-install
+```
+
+
+Step 2: Move `kaggle.json` file downloaded as prerequisite earlier into 
+`~/.kaggle` folder. If the folder does not exist, either create one or run:
+
+```
+kaggle
+```
+
+An error will occur and the folder will be generate. Also, it is good to 
+change the file permission to 660 by running *bash* command:
+
+```
+$ sudo chmod 660 ~/.kaggle/kaggle.json
+```
+
+Step 3: File and model preparation
+
+Option A: Run one *make* command to achieve all:
+
+```
+make file-prep
+```
+
+Option B: Run the following *make* command in the correct order:
+
+To download file:
 
 ```
 make download-file
 ```
 
-Step 3: Prepare Train and Test files:
+To preprocess files:
 
 ```
-make prepare-files
+make preprocessing-files
 ```
 
-or run the one-step *make* command:
+To prepare a 50-records JSON test file:
 
 ```
-make prep-all
+make prepare-test-file
 ```
 
-#### Analysis
+To create XGBoost Balanced Dataset model:
 
 ```
-make evaluation
+make create-model
 ```
+
+#### Analysis (Optional)
+
+Run the following command:
+
+```
+sudo jupyter notebook
+```
+
+A web browser should pop up to direct to the GUI of Jupyter Notebook. 
+
 
 #### Deployment
 
@@ -615,7 +693,9 @@ In a new terminal, run the following command:
 make post-test-data
 ```
 
-The result JSON file should be located in `data/processed/result.json`.
+The application will return the label of *0* or *1* along with the correct 
+*ID* to indicate whether the user ID will be more likely to experience 
+financial distress in the next two years (1) or not (0).
 
 
 #### Clean Up
@@ -629,15 +709,35 @@ make clean
 To stop docker service, run:
 
 ```
-docker stop
+make docker-stop
 ```
 
 ## Results
 
+All benchmarks were performed on:
+
+Local Desktop 
+Setting 1. VMWare running Ubuntu 18.10 with 2GB Memory and 1 Processor 
+Setting 2. VMWare running Ubuntu 18.10 with 8GB Memory and 4 Processor
+
+AWS Server
+Instance Type: t2.micro (1 CPU and 1GB Memory) running Ubuntu Server 
+18.04 LTS (HVM), SSD Volume Type
+
 ### Deployment Benchmarks
 
 
+|                 | LD Setting 1 | LD Setting 3 | AWS Server | 
+|-----------------|--------------|--------------|------------| 
+| prep file       | 0.16         | 0.34         | 0.66       | 
+| docker build    | 0.02         | 0.06         | 0.06       |
+
+
 ### Application Benchmarks
+
+|                 | LD Setting 1 | LD Setting 3 | AWS Server | 
+|-----------------|--------------|--------------|------------| 
+| 50 records test |              |              |            | 
 
 
 ## Limitations
@@ -653,6 +753,10 @@ pattern of the training set.
 In term of network and security, the project does not focus on security and 
 authentication/authorization aspect of the code, most of the port and 
 network are set to allow any IP access to the EC2 server. 
+
+Also, there are other applications that can be paired with Docker such
+as docker compose and Kubenetes to enhance the implementation 
+(DevOps) process and mimic a more ideal production environment.
 
 ## Conclusion
 
