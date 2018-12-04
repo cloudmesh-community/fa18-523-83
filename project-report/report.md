@@ -369,13 +369,6 @@ trying to solve.
 
 ### Technologies Used
 
-#### Kaggle API
-
-Kaggle API provides the ability to pull and push data from Kaggle website using 
-command tool implemented in Python 3. The Kaggle API GitHub page provide 
-detailed Installation, API credentials and commands instruction 
-[@fa18-523-83-www-kaggle-api-github]. 
-
 #### Python Packages
 
 * **click**: allows arguments to be passed to python code.
@@ -395,8 +388,10 @@ via Python
 * **jupyter** : jupyter notebook package that allows user to run and see Python
 result without having to construct a full syntax Python application
 
-* **kaggle**: Kaggle API allows user to source data from kaggle through command 
-line.
+* **kaggle**: Kaggle API provides the ability to pull and push data from Kaggle 
+website using command tool implemented in Python 3. The Kaggle API GitHub 
+page provide detailed Installation, API credentials and commands instruction 
+[@fa18-523-83-www-kaggle-api-github].
 
 * **flask**: Flask API is a Python package that allows RESTful web service from 
 Python. 
@@ -567,7 +562,9 @@ into a good form to feed into machine learning algorithms
 * to_json.py: python code to convert file from dataframe format to JSON format
 * train_data.py: python code to train and build XGBoost model and output the 
 model for the credit flask API app
-* Python notebooks: 
+* Python notebooks for visualization and evaluation: 
+     * 00-Visualization-Notebook
+     * 01-Evaluation-Notebook
 
 ### Code Running Instruction
 
