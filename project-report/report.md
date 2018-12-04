@@ -32,8 +32,8 @@ optimization, API
 
 For every machine learning problem, there are normally two main areas that 
 everyone focuses on: which machine learning algorithms to use and how to 
-implement and integrate the machine learning code into existing production 
-infrastructure.
+implement and integrate the machine learning code into a new or existing 
+production infrastructure.
 
 Most of the time, machines make predictions by learning and observing the data 
 patterns from previously existing data with known results. Once the training 
@@ -45,11 +45,14 @@ apply the result of the prediction into a new or existing production
 application and how to ensure the continuous deployment into the production 
 environment without resulting deployment code defects.
 
-The business problem that will be focused on is how to determine in real-time 
-whether or not a customer will be experiencing financial distress in the next 
-two years. By predicting the business problem, banking companies can use the 
-results as part of their business rules to decide whether to approve their 
-products to the customers.  
+The business problem that will be focused on in this project is how to 
+determine in real-time whether or not a customer will be experiencing a 
+financial distress in the next two years. By predicting the business problem, 
+banking companies can use the results as part of their business rules to 
+decide whether to approve their products to the customers. Once the algorithm
+is finalized and trained into a model, the deployment of code will be 
+performed and benchmarked to provide an overview of how long it will take to 
+move, set up and run the code from one environment to another.
 
 ## Design
 
@@ -126,7 +129,7 @@ credit and real estate lines, and the count of customers that have dependents
 other than themselves. Most of the distributions are right-skewed, the majority 
 of them do not have any past due or dependents.
 
-![Count of Customer by Multiple Attributes](images/count_vs_attributes_training.PNG){#fig:attributescounttraining}
+![Count of Customer by Multiple Attributes](images/fa18-523-83-count_vs_attributes_training.PNG){#fig:attributescounttraining}
 
 
 +@fig:labeldistribution shows the distribution of the label that will be what 
@@ -137,7 +140,7 @@ delinquency is 14 times more than the number of customers that had delinquency.
 This issue will need to be handled during the *Data Cleaning* or 
 *Model Training* process to avoid overfitting.
 
-![Label Distribution](images/label_distribution_training.PNG){#fig:labeldistribution}
+![Label Distribution](images/fa18-523-83-label_distribution_training.PNG){#fig:labeldistribution}
 
 
 ### Data Preperation
@@ -158,7 +161,7 @@ coefficient, the method that is used for this training set is called
 *Spearman*. +@fig:correlation1 shows the first observation of the 
 correlation between all variables.
 
-![Correlation First Run](images/correlation_step_1.PNG){#fig:correlation1}
+![Correlation First Run](images/fa18-523-83-correlation_step_1.PNG){#fig:correlation1}
 
 
 From +@fig:correlation1, *DebtRatio* has a very low correlation to the class 
@@ -186,7 +189,7 @@ more cleaning to be done. +@fig:correlation2 is the second *heatmap* run with
 all prepared variables.
 
 
-![Correlation Second Run](images/correlation_step_2.PNG){#fig:correlation2}
+![Correlation Second Run](images/fa18-523-83-correlation_step_2.PNG){#fig:correlation2}
 
 
 The final observation is that *MonthlyIncome* and the new variables 
@@ -423,23 +426,25 @@ and set the permission to 600  [@fa18-523-83-www-kaggle-api-github].
 command to install *make*:
 
     ```
-	sudo apt-get install make
-	```
+    sudo apt-get install make
+    ```
     
-    This will allow the *make* command from *Makefile* to be run. The rest
-	of the prerequisites packages and software can be run using *make* command.
+  This will allow the *make* command from *Makefile* to be run. The rest 
+  of the prerequisites packages and software can be run using *make* command.
 
 * **Project's Git Command**: install git command by running the following 
 command:
 
     ```
-	sudo apt-get install git-core
-	```
+    sudo apt-get install git-core
+    ```
 
 * **Project's Github Repository Cloned**: ensure all project is cloned from 
 GitHub using the following command:
 
-    ```sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git```
+    ```
+    sudo git clone https://github.com/cloudmesh-community/fa18-523-83.git
+    ```
 
 * **AWS Account** : an AWS account is required to be able to launch a cloud 
 server instance for deployment and benchmarking results. The AWS account can 
