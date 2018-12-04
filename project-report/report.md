@@ -782,7 +782,13 @@ environment.
 There are many algorithms that would give different results depends on 
 different types of training data being fit into the algorithms. Just because 
 one algorithm performs well does not mean it will give high results for all
-different datasets. With every machine learning algorithm codes, there are 
+different datasets. 
+
+There are multiple tools and software that integrate all of the machine 
+learning algorithms and turn them into real-time and responsive decision
+machine engine. 
+
+With every machine learning algorithm codes, there are 
 many components involved and it would take multiple steps and complex code 
 to deploy from one environment to another. *Makefile* and *Docker* provides
 convenient deployments that only require simple command and speed up 
