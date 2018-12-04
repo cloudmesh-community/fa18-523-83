@@ -121,7 +121,7 @@ of *0* value as outliers and the distribution without those outliers will be
 a right-skewed distribution. Therefore, it is better to replace those outliers 
 with the median value of the distribution.
 
-![Count of Customer by Age](images/age_count_customer_training.PNG){#fig:agecounttraining}
+![Count of Customer by Age](images/fa18-523-83-age_count_customer_training.PNG){#fig:agecounttraining}
 
 +@fig:attributescounttraining shows overall distribution of the count of 
 customers that experienced past due, the count of customers that have open 
