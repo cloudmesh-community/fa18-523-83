@@ -91,8 +91,8 @@ to a specific folder once *kaggle* package is installed
 After all the prerequisites are met and the Ubuntu server is up and running, 
 the follow steps can be used to reproduce the environment and files preparation 
 process starting at the directory that the *Makefile* is in (to output *make* 
-command and runtime status into log file, append `2>&1 | tee report.log` next
-to every make command, e.g. `make clean 2>&1 | tee report.log`)
+command and runtime status into log file, append `2>&1 | sudo tee report.log` 
+next to every make command, e.g. `make clean 2>&1 | sudo tee report.log`)
 
 Step 1: Environment preparation
 
