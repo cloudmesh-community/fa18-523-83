@@ -1,5 +1,5 @@
 APP_NAME=credit_app
-SHELL = ./bin/report_time.sh
+SHELL = chmod 777 ./bin/report_time.sh ; ./bin/report_time.sh
 
 .PHONY: prepare_environment
 prepare-environment: update-environment packages-install docker-install 
