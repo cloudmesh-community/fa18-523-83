@@ -33,7 +33,7 @@ packages-install:
 
 .PHONY: docker-build-image
 docker-build-image:
-	cd src/docker ; sudo docker build -t $(APP_NAME) . ; cd ../../ $@
+	cd src/docker ; sudo docker build -t $(APP_NAME) . ; cd ../../
 
 .PHONY: docker-run-image
 docker-run-image:
@@ -72,5 +72,5 @@ clean:
 
 .PHONY: post-test-data
 post-test-data: 
-	sudo curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:80/json-get-results $@
+	sudo curl -i -X POST -H "Content-Type: application/json" -d @data/interim/test.json http://0.0.0.0:80/json-get-results
 
