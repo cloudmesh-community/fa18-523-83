@@ -3,9 +3,11 @@ import json
 import pandas as pd
 import pickle
 from xgboost import XGBClassifier
+from flask_json import FlaskJSON, json_response
 
 app = Flask(__name__) #create the Flask app
 
+FlaskJSON(app)
  
 
  
@@ -16,9 +18,7 @@ def welcome_page():
 
     print('Credit Scoring Algorithm')
              
-
-              
-
+            
               
 
 @app.route('/json-get-results', methods=['POST']) #GET requests will be blocked
@@ -46,11 +46,11 @@ def json_get_results():
     df_result['SeriousDlqin2yrs']=y_predict_df
 
     data= df_result.to_json(orient='records')
-    with open('results.json', 'w') as fp:
-        	fp.write(data + '\n')
+    #with open('results.json', 'w') as fp:
+        	#fp.write(data + '\n')
 
-    return 'JSON returned'
-
+    return json_response(data, status_code=201)
+   
 if __name__ == '__main__':
 
     app.run(host="0.0.0.0", port=80)
