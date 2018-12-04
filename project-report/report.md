@@ -786,11 +786,12 @@ different datasets. With every machine learning algorithm codes, there are
 many components involved and it would take multiple steps and complex code 
 to deploy from one environment to another. *Makefile* and *Docker* provides
 convenient deployments that only require simple command and speed up 
-implementation in machine learning code. 
+implementation in machine learning code.
 
 ## Acknowledgements
 
-The author would like to thank professor Lakowski and his class's TAs for 
-helping with materials, markdown writing techniques, and review of this project.
+The author would like to thank professor Gregor von Laszewski and his class's 
+TAs for helping with materials, markdown writing techniques, and review 
+of this project.
  
 ## References
