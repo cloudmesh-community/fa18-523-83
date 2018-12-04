@@ -2,7 +2,7 @@ APP_NAME=credit_app
 SHELL = ./bin/report_time.sh
 
 .PHONY: prep_env
-prep_environment: update-environment packages-install docker-install 
+prepare_environment: update-environment packages-install docker-install 
 
 .PHONY: update-environment
 update-environment:
