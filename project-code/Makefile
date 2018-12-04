@@ -47,7 +47,7 @@ file-prep: download-file preprocessing-files prepare-test-file create-model
 
 
 download-file:
-	sudo apt-get install -y unzip zip ; kaggle datasets download -d brycecf/give-me-some-credit-dataset ; unzip -o give-me-some-credit-dataset.zip -d data/raw ; rm -f give-me-some-credit-dataset.zip
+	sudo apt-get install -y unzip zip ; sudo kaggle datasets download -d brycecf/give-me-some-credit-dataset ; sudo unzip -o give-me-some-credit-dataset.zip -d data/raw ; sudo rm -f give-me-some-credit-dataset.zip
 
 preprocessing-files:
 	python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl $@
