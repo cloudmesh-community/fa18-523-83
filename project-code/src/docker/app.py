@@ -3,11 +3,11 @@ import json
 import pandas as pd
 import pickle
 from xgboost import XGBClassifier
-from flask_json import FlaskJSON, json_response
+#from flask_json import FlaskJSON, json_response
 
 app = Flask(__name__) #create the Flask app
 
-FlaskJSON(app)
+#FlaskJSON(app)
  
 
  
@@ -46,10 +46,10 @@ def json_get_results():
     df_result['SeriousDlqin2yrs']=y_predict_df
 
     data= df_result.to_json(orient='records')
-    #with open('results.json', 'w') as fp:
-        	#fp.write(data + '\n')
-
-    return json_response(data)
+    response = app.response_class(response=json.dumps(data),
+                                  status=200,
+                                  mimetype='application/json')
+    return response
    
 if __name__ == '__main__':
 
