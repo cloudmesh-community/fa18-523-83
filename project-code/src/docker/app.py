@@ -49,7 +49,7 @@ def json_get_results():
     #with open('results.json', 'w') as fp:
         	#fp.write(data + '\n')
 
-    return json_response(data, status_code=201)
+    return json_response(data, status_code=200)
    
 if __name__ == '__main__':
 
