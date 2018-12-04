@@ -54,15 +54,12 @@ prepare-files: preprocessing-files prepare-test-file
 preprocessing-files:
 	sudo python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl
 	sudo python3 src/data/preprocessing.py data/raw/cs-test.csv data/interim/testing.pkl
-	$@
 	
 prepare-test-file: 
 	sudo python3 src/data/to_json.py data/interim/testing.pkl data/interim/test.json 
-	$@
 
 create-model:
 	sudo python3 src/data/train_data.py data/processed/training.pkl src/docker/xgboost_model.pkl 
-	$@
 
 .PHONY: clean
 clean:
