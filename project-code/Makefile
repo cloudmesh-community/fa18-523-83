@@ -70,6 +70,7 @@ clean:
 	sudo rm -f data/interim/*.pkl
 	sudo rm -f data/interim/*.json
 	sudo rm -f src/docker/*.pkl
+	sudo rm -f *.log
 
 .PHONY: post-test-data
 post-test-data: 
