@@ -1,5 +1,5 @@
 APP_NAME=credit_app
-SHELL = sudo ./bin/report_time.sh
+SHELL = sudo sh bin/report_time.sh
 
 .PHONY: prepare_environment
 prepare-environment: update-environment packages-install docker-install 
