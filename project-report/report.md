@@ -126,7 +126,7 @@ with the median value of the distribution.
 
 ![Count of Customer by Age](images/fa18-523-83-age_count_customer_training.PNG){#fig:agecounttraining}
 
-+@fig:attributescounttraining shows overall distribution of the count of 
++@fig:attributescounttraining shows the overall distribution of the count of 
 customers that experienced past due, the count of customers that have open 
 credit and real estate lines, and the count of customers that have dependents 
 other than themselves. Most of the distributions are right-skewed, the majority 
@@ -151,7 +151,7 @@ This issue will need to be handled during the *Data Cleaning* or
 From the *Data Visualization* step, the first basic data preparation is 
 replacing missing value with median value. Another way to handle this issue is 
 to drop records that have missing data, however, due to low data volumes and 
-mbalanced class data distribution, it is better to replace missing data instead. 
+imbalanced class data distribution, it is better to replace missing data instead. 
 
 Using *seaborn*, *heatmap* can be used to visualize the correlation of all 
 attributes. Correlation is a measurement of the strength of association between 
@@ -257,8 +257,8 @@ threshold between 0 and 1 is needed to determine the category of the prediction
 > as it was built and developed for the sole purpose of model performance and 
 > computational speed" [@fa18-523-83-www-xgboost-kdnuggets]. 
 
-There is an XGBoost API that can be called via *sklearn* using function 
-*XGBClassier*.
+There is an XGBoost API that can be called via *sklearn* using the function 
+*XGBClassifier*.
 
 * **Neural Network**: a neural network is a machine learning algorithm that 
 is inspired by the human brain. Neural network identifies the pattern of input 
@@ -390,7 +390,7 @@ result without having to construct a full syntax Python application
 
 * **kaggle**: Kaggle API provides the ability to pull and push data from Kaggle 
 website using command tool implemented in Python 3. The Kaggle API GitHub 
-page provide detailed Installation, API credentials and commands instruction 
+page provides a detailed installation, API credentials and commands instruction 
 [@fa18-523-83-www-kaggle-api-github].
 
 * **flask**: Flask API is a Python package that allows RESTful web service from 
@@ -593,10 +593,10 @@ model for the credit flask API app
 #### Environment and Files Preparation
 
 After all the prerequisites are met and the Ubuntu server is up and running, 
-the follow steps can be used to reproduce the environment and files preparation 
+the following steps can be used to reproduce the environment and files preparation 
 process starting at the directory that the *Makefile* is in (to output *make* 
-command and runtime status into log file, append `2>&1 | tee report.log` next
-to every make command, e.g. `make clean 2>&1 | tee report.log`)
+command and runtime status into a log file, append `2>&1 | sudo tee report.log` 
+next to every make command, e.g. `make clean 2>&1 | sudo tee report.log`)
 
 Step 1: Environment preparation
 
@@ -607,16 +607,16 @@ and packages:
 make prepare-environment
 ```
 
-Option B: run smaller command in the right order listed if there is a 
+Option B: run smaller commands in the right order listed if there is a 
 connection failure during Option A
 
-To update and upgrade Ubuntu environmen:
+To update and upgrade Ubuntu environment:
 
 ```
 make update-environment
 ```
 
-To install other packges:
+To install other packages:
 
 ```
 make packages-install
@@ -636,7 +636,7 @@ Step 2: Move `kaggle.json` file downloaded as prerequisite earlier into
 kaggle
 ```
 
-An error will occur and the folder will be generate. Also, it is good to 
+An error will occur and the folder will be generated. Also, it is good to 
 change the file permission to 660 by running *bash* command:
 
 ```
@@ -653,7 +653,7 @@ make file-prep
 
 Option B: Run the following *make* command in the correct order:
 
-To download file:
+To download files:
 
 ```
 make download-file
@@ -735,51 +735,58 @@ make docker-stop
 
 All benchmarks were performed on:
 
-Local Desktop 
-Setting 1. VMWare running Ubuntu 18.10 with 2GB Memory and 1 Processor 
-Setting 2. VMWare running Ubuntu 18.10 with 8GB Memory and 4 Processor
+Local Desktop - VMWare running Ubuntu 18.10 with 2GB Memory and 1 Processor 
 
-AWS Server
-Instance Type: t2.micro (1 CPU and 1GB Memory) running Ubuntu Server 
+Local Laptop - VMWare running Ubuntu 18.10 with 8GB Memory and 4 Processors
+
+AWS Server - Instance Type: t2.micro (1 CPU and 1GB Memory) running Ubuntu Server 
 18.04 LTS (HVM), SSD Volume Type
 
 ### Deployment Benchmarks
 
 
-|                 | LD Setting 1 | LD Setting 3 | AWS Server | 
-|-----------------|--------------|--------------|------------| 
-| prep file       | 23.48 secs   | 0.34         | 0.66       | 
-| docker build    | 0.02         | 0.06         | 0.06       |
+|                 | Desktop      | Laptop           | AWS Server | 
+|-----------------|--------------|------------------|------------| 
+| prep file       | 23.48 secs   | 10.71 secs       | 5.28 secs  | 
+| docker build    | 33.62 secs   | 1 min 13.40 secs | 56.43 secs |
 
 
 ### Application Benchmarks
 
-|                 | LD Setting 1 | LD Setting 3 | AWS Server | 
+|                 | Desktop      | Laptop       | AWS Server | 
 |-----------------|--------------|--------------|------------| 
-| 50 records test |              |              |            | 
+| 50 records test | 0.12 sec     | 0.06 sec     | 0.09 sec   | 
 
 
 ## Limitations
 
 Data volume is limited due to the provided dataset is from a Kaggle 
-competition; increasing in data volume would improve the prediction result. 
+competition; increasing in data volume would improve the prediction results. 
 
 Prediction results could also be improved by running and evaluating 
-more other classification algorithms. Also, parameters can be enhanced 
+more other classification algorithms. Algorithm parameters can be enhanced 
 to provide more customization to all algorithms to observe this specific 
 pattern of the training set.
 
 In term of network and security, the project does not focus on security and 
-authentication/authorization aspect of the code, most of the port and 
+authentication/authorization aspect of the code, most of the ports and 
 network are set to allow any IP access to the EC2 server. 
 
-Also, there are other applications that can be paired with Docker such
-as docker compose and Kubenetes to enhance the implementation 
-(DevOps) process and mimic a more ideal production environment.
+Also, there are other applications that can be paired with Docker that have
+not been explored such as docker compose and Kubenetes or AWS ECS to enhance
+the implementation (DevOps) process and mimic a more ideal production 
+environment.
 
 ## Conclusion
 
-
+There are many algorithms that would give different results depends on 
+different types of training data being fit into the algorithms. Just because 
+one algorithm performs well does not mean it will give high results for all
+different datasets. With every machine learning algorithm codes, there are 
+many components involved and it would take multiple steps and complex code 
+to deploy from one environment to another. *Makefile* and *Docker* provides
+convenient deployments that only require simple command and speed up 
+implementation in machine learning code. 
 
 ## Acknowledgements
 
