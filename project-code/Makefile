@@ -52,9 +52,10 @@ download-file:
 prepare-files: preprocessing-files prepare-test-file
 
 preprocessing-files:
-	python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl $@
-	python3 src/data/preprocessing.py data/raw/cs-test.csv data/interim/testing.pkl $@
-
+	python3 src/data/preprocessing.py data/raw/cs-training.csv data/processed/training.pkl
+	python3 src/data/preprocessing.py data/raw/cs-test.csv data/interim/testing.pkl
+	$@
+	
 prepare-test-file: 
 	python3 src/data/to_json.py data/interim/testing.pkl data/interim/test.json $@
 
