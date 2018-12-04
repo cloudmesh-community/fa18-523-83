@@ -490,7 +490,31 @@ to a specific folder once *kaggle* package is installed
 The directory structure of the project are:
 
 ```
-tree command
+tree
+.
+├── bin
+│   └── report_time.sh
+├── data
+│   ├── interim
+│   ├── processed
+│   └── raw
+├── Makefile
+├── notebook
+│   ├── 00-Visualization-Notebook.ipynb
+│   └── 01-Evaluation-Notebook.ipynb
+├── README.md
+└── src
+    ├── data
+    │   ├── preprocessing.py
+    │   ├── to_json.py
+    │   └── train_data.py
+    ├── docker
+    │   ├── app.py
+    │   ├── Dockerfile
+    │   └── requirements.txt
+    └── evaluation
+        ├── result_balanced.csv
+        └── result_imbalanced.csv
 ```
 
 #### LICENSE
