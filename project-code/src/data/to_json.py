@@ -12,7 +12,8 @@ def write_to_json(data, output):
 @click.argument('output_json', type=click.Path(writable=True, dir_okay=False))
 def main(input_file, output_json):
 	df=read_pickle(input_file)
-	data= df[50].to_json(orient='records')
+	df=df[50]
+	data= df.to_json(orient='records')
 	write_to_json(data,output_json)
 
 if __name__ == '__main__':
