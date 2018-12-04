@@ -469,11 +469,11 @@ with the following configurations [@fa18-523-83-www-aws-ec2]:
 	 will be the only time user can download a key pair. Ensure the key 
 	 permission is 400. 
  
-To connect to AWS EC2 server, run the following command:
+    To connect to AWS EC2 server, run the following command:
 
-```
-ssh -i <key-file-and-directory> ubuntu@<AWS-public-DNS>
-```     
+    ```
+    ssh -i <key-file-and-directory> ubuntu@<AWS-public-DNS>
+    ```     
 
 ### Project Code Structure and Components
 
@@ -593,19 +593,21 @@ make evaluation
 
 #### Deployment
 
-**Step 1: Build a docker image**
+Step 1: Build a docker image
 
 ```
 make docker-build-image
 ```
 
-**Step 2: Run docker image**
+Step 2: Run docker image
 
 ```
 make docker-run-image
 ```
 
-**Step 3: POST JSON test data to API Flask app**
+#### Test Run Application
+
+POST JSON test data to API Flask app
 
 In a new terminal, run the following command:
 
@@ -624,6 +626,12 @@ The following command to clean up files after the deployment:
 make clean
 ```
 
+To stop docker service, run:
+
+```
+docker stop
+```
+
 ## Results
 
 ### Deployment Benchmarks
@@ -636,12 +644,15 @@ make clean
 
 Data volume is limited due to the provided dataset is from a Kaggle 
 competition; increasing in data volume would improve the prediction result. 
-Furthermore, the project does not focus on security and 
+
+Prediction results could also be improved by running and evaluating 
+more other classification algorithms. Also, parameters can be enhanced 
+to provide more customization to all algorithms to observe this specific 
+pattern of the training set.
+
+In term of network and security, the project does not focus on security and 
 authentication/authorization aspect of the code, most of the port and 
-network are set to allow any IP access to the EC2 server. Prediction results 
-could also be improved by running and evaluating more other classification 
-algorithms. Also, parameters can be enhanced to provide more customization to 
-all algorithms to observe this specific pattern of the training set.
+network are set to allow any IP access to the EC2 server. 
 
 ## Conclusion
 
