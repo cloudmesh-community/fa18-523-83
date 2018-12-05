@@ -30,29 +30,29 @@ deployment, API
 ## Introduction
 
 
-For every machine learning problem, there are normally two main areas that 
+For every machine learning problem, there are primarily two main areas that 
 everyone focuses on: which machine learning algorithms to use and how to 
 implement and integrate the machine learning code into a new or existing 
 production infrastructure.
 
 Most of the time, machines make predictions by learning and observing the data 
-patterns from previously existing data with known results. Once the training 
-is over, the machine learning code can then be applied to new data and predict 
-the unknown results by applying the trained patterns and algorithms.
+patterns from previously existing data with known results. That process is 
+called training. Once the training is over, the machine learning code can
+predict the unknown results by applying the trained models into new data.
 
 The next thing to do after prediction would be determining how to retrieve and 
 apply the result of the prediction into a new or existing production 
 application and how to ensure the continuous deployment into the production 
 environment without resulting deployment code defects.
 
-The business problem that will be focused on in this project is how to 
-determine in real-time whether or not a customer will be experiencing a 
-financial distress in the next two years. By predicting the business problem, 
-banking companies can use the results as part of their business rules to 
-decide whether to approve their products to the customers. Once the algorithm
-is finalized and trained into a model, the deployment of code will be 
-performed and benchmarked to provide an overview of how long it will take to 
-move, set up and run the code from one environment to another.
+The business problem that will be focused on is how to determine whether or 
+not a customer will be experiencing a financial distress in the next two 
+years. By predicting the business problem, banking companies can use the 
+results as part of their business rules to decide whether to approve their 
+products to the customers. Once the algorithm is finalized and trained 
+into a model, the deployment of code will be performed and benchmarked 
+to provide an overview of how long it will take to prepare and run 
+the code from one environment to another.
 
 ## Design
 
@@ -72,9 +72,9 @@ dictionary. The training set contains 150,000 records of previous customer
 data with an existing label indicating whether or not each customer had 
 serious bank delinquency within two years. The test set contains about 100,000 
 records without any label data, which will not be part of the analysis but 
-will be used as part of the benchmarking report.
+50 test records will be used as part of the benchmarking report.
  
-Data descriptions [@fa18-523-83-www-gmsc-kaggle-data]:
+Data descriptions, as mentioned in [@fa18-523-83-www-gmsc-kaggle-data], are:
 
 *  **SeriousDlqin2yrs**: label data, contains 'Yes' or 'No' indicator 
 *  **RevolvingUtilizationOfUnsecuredLines**: total balance of unsecured lines 
