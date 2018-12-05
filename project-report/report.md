@@ -157,7 +157,7 @@ Using *seaborn*, *heatmap* can be used to visualize the correlation of all
 attributes. Correlation is a measurement of the strength of association between 
 two variables and the relationship's direction 
 [@fa18-523-83-www-correlation-stats]. Correlation is an important indicator 
-in the Feature Selection process to help determine which attributes should be 
+in the *Feature Selection* process to help determine which attributes should be 
 used as part of the training set and which attributes should be irrelevant. 
 There are multiple correlation methods to calculate the correlation 
 coefficient, the method that is used for this training set is called 
@@ -768,7 +768,7 @@ more other classification algorithms. Algorithm parameters can be enhanced
 to provide more customization to all algorithms to observe this specific 
 pattern of the training set.
 
-In term of network and security, the project does not focus on security and 
+In term of network and security, we did not focus on security and 
 authentication/authorization aspect of the code, most of the ports and 
 network are set to allow any IP access to the EC2 server. 
 
