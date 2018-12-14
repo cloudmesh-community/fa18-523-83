@@ -1,5 +1,4 @@
-# Credit Scoring Algorithm and its Implementation in Production Environment :smiley: fa18-523-83
-
+# Credit Scoring Algorithm and its Implementation in Production Environment
 
 | Nhi Tran
 | nytran@iu.edu
